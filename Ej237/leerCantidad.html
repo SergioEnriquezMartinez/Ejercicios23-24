@@ -1,0 +1,22 @@
+<!--
+237leerCantidad.html y 237leerPersonas.php:
+a partir de un formulario con un campo de cantidad de personas, generar un nuevo formulario para leer el nombre, altura y email de cantidad personas.
+237gestionarPersonas.php: A partir de las personas introducidas, mostrar sus datos en una tabla,
+y posteriormente, destacar los datos del más alto y el del más bajo.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantidad</title>
+</head>
+<body>
+    <form action="leerPersonas.php" method="get">
+        <p><label for="cantidad">Introduce una cantidad</label>
+            <input type="text" name="cantidad" id="cantidad"></p>
+        <p><input type="submit" value="Enviar"></p>
+    </form>
+</body>
+</html>

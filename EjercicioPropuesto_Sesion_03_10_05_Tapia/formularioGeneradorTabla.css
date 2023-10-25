@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+}
+form{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: lightseagreen solid 1px;
+    border-radius: 1em;
+    padding: 1em;
+}
+form div{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

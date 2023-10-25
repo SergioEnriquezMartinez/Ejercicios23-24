@@ -1,0 +1,2 @@
+<!-- Crea un programa que permita al usuario leer un conjunto de números separados por espacios.
+256filtrado.php: El programa filtrará los números leídos para volver a mostrar únicamente los números pares e indicará la cantidad existente. -->

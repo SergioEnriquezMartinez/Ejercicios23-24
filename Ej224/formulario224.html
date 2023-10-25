@@ -1,0 +1,22 @@
+
+/*224formulario.html: Crea un formulario que permita leer una cantidad.
+Tip
+Para guardar un dato oculto puedes utilizar un campo de formulario de tipo oculto: <input type="hidden" name="cantidad" value="33" />
+224leerDatos.php: a partir de cantidad, prepara un formulario con tantas cajas de datos como su valor.
+Finalmente, en 224sumarDatos.php: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="leerDatos224.php" method="get">
+        <p><label for="cantidad">Introduce una cantidad</label>
+        <input type="number" name="cantidad" id="cantidad"></p>
+        <p><input type="submit" value="Enviar"></p>
+    </form>
+</body>
+</html>

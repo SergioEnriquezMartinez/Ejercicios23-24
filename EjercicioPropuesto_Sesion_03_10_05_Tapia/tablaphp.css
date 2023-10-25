@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+table{
+    border-collapse: collapse;
+}
+tr, td{
+    border: solid 1px black;
+}
+td{
+    padding: 1em;
+}
+
+.rojo{
+    background-color: lightcoral;
+}
+.verde{
+    background-color: lightgreen;
+}

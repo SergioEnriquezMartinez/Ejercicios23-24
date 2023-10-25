@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formularioGeneradorTabla.css" />
+    <title>generadorDeTablas</title>
+  </head>
+  <body>
+    <h1>Generador De Numeros</h1>
+    <main>
+      <form action="ejercicioTablaDinamia.php" method="post">
+        <div class="filas">
+          <label for="filas">numero de filas: </label>
+          <input type="number" name="filas" id="filas" min="3" max="10" />
+        </div>
+        <div class="columnas">
+          <label for="columnas">numero de columnas: </label>
+          <input type="number" name="columnas" id="columnas" min="3" max="10" />
+        </div>
+        <div>
+          <input type="submit" name="boton" value="enviar" />
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
