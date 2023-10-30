@@ -18,6 +18,8 @@ function mayor(): int {
 echo "El numero mayor de los siguientes es: " . mayor(5, 6, 3, 9, 17, 745, 1);
 
 
-
+function concatenar(...$palabras) : string {
+    return "";
+}
 
 ?>
