@@ -4,3 +4,7 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
 deberás crear un getter para los teléfonos):
 
 public static function toHtml(Empleado $emp): string*/
+
+
+
+?>

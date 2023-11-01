@@ -43,11 +43,13 @@ public function listarTelefonos(): string → Muestra los teléfonos separados p
         }
 
         public function aniadirTelefono(int $telefono) : void {
-            array_push($telefonos, $telefono);
+            array_push($this->telefonos, $telefono);
         }
 
         public function listarTelefonos() : string {
-            return "";
+            foreach ($this->telefonos as $telfs) {
+                return $telfs;
+            }
         }
     }
 
