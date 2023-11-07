@@ -1,5 +1,5 @@
 <?php
-class Empleado {
+class Empleado307 {
 
 public function __construct(
     private string $nombre,
@@ -53,7 +53,7 @@ public function listarTelefonos() : string {
     }
 }
 
-public static function toHtml(Empleado $emp) : string {
+public static function toHtml($emp) : string {
     return "<p>Empleado: " . $emp->getNombreCompleto() . " con un sueldo de " . $emp->getSueldo(). " y con los teléfonos " . $emp->getTelefono() . "</p>";
 }
 

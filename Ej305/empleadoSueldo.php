@@ -2,7 +2,7 @@
 /*Copia la clase del ejercicio anterior y modifícala.
 Cambia la constante por una variable estática sueldoTope, de manera que mediante getter/setter puedas modificar su valor.*/
 
-class Empleado {
+class Empleado305 {
 
     private string $nombre;
     private string $apellido;
@@ -36,7 +36,7 @@ class Empleado {
     }
 
     public function debePagarImpuestos() : bool {
-        return $this->sueldo > self::SUELDO_TOPE;
+        return $this->sueldo > self::$sueldoTope;
     }
 }
 ?>

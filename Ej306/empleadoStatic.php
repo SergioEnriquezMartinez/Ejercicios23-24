@@ -5,7 +5,7 @@ deberás crear un getter para los teléfonos):
 
 public static function toHtml(Empleado $emp): string*/
 
-class Empleado {
+class Empleado306 {
 
     public function __construct(
         private string $nombre,
@@ -59,7 +59,7 @@ class Empleado {
         }
     }
 
-    public static function toHtml(Empleado $emp) : string {
+    public static function toHtml($emp) : string {
         return "<p>Empleado: " . $emp->getNombreCompleto() . " con un sueldo de " . $emp->getSueldo(). " y con los teléfonos " . $emp->getTelefono() . "</p>";
     }
 
