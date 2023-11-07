@@ -5,12 +5,12 @@ Si no, se le asignará 1000€ como sueldo inicial.
 
 303EmpleadoConstructor8.php: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del constructor.*/
 
-class Empleado {
+class Empleado303b {
 
     public function __construct(
         private string $nombre,
         private string $apellido,
-        private int $s = 1000)
+        private int $sueldo = 1000)
         {
 
     }

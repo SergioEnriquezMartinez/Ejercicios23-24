@@ -1,6 +1,25 @@
-<!-- A partir de una frase con palabras sólo separadas por espacios, devolver
+<?php
 
-Letras totales y cantidad de palabras
-Una línea por cada palabra indicando su tamaño
-Nota: no se puede usar str_word_count
-252analizadorWC.php: Investiga que hace la función str_word_count, y vuelve a hacer el ejercicio. -->
+function analizador($frase) : void {
+    $tam = strlen($frase);
+    $espacios = 0;
+    $longitudPalabra = 0;
+    $cantidadPalabras = 0;
+
+    for ($i = 0; $i < $tam; $i++) {
+        if (ctype_space($frase[$i]) || $i == $tam - 1) {
+            $palabra = substr($frase, $longitudPalabra, $i - $longitudPalabra);
+            $cantidadPalabras++;
+            $longitudPalabra = $i + 1;
+            $espacios++;
+            echo "Palabra: " . $palabra . " con el tamaño de " . strlen($palabra). "<br>";
+        }
+    }
+
+    $letrasTotales = $tam - $espacios;
+    echo "<p>Letras totales: " . $letrasTotales . "</p>";
+    echo "<p>Palabras totales: " . $cantidadPalabras . "</p>";
+}
+
+analizador("Esto es una frase de prueba");
+?>

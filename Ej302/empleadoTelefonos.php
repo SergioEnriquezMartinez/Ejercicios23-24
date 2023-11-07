@@ -3,7 +3,7 @@
 public function anyadirTelefono(int $telefono) : void → Añade un teléfono al array
 public function listarTelefonos(): string → Muestra los teléfonos separados por comas*/
 
-    class Empleado {
+    class Empleado302 {
 
         public function __construct(
             private string $nombre,

@@ -4,7 +4,7 @@ Obtener su nombre completo → getNombreCompleto(): string
 Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → debePagarImpuestos(): bool-*/
  
 
-    class Empleado {
+    class Empleado301 {
 
         public function __construct(
             private string $nombre,
