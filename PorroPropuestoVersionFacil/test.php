@@ -10,6 +10,8 @@
         $nombre = $_GET["nombre"];
         $sumas = $_GET["sumas"];
         $restas = $_GET["restas"];
+        $sumaTotal = $_GET["sumaTotal"];
+        $restaTotal = $_GET["restaTotal"];
 
         if (empty($nombre) && !preg_match("/^[a-zA-Z ]*$/", $nombre)) {
             echo "<p>Introduce un nombre válido</p>";
@@ -33,9 +35,27 @@
         $operando1 = rand(10, 99);
         $operando2 = rand(10, 99);
         if ($sumaOresta && $contSumas <= $numSumas) {
-
+            $resultadoEsperado = $operando1 + $operando2;
+            echo "<h2>¿Cuánto suman $operando1 + $operando2?</h2>";
+            echo "<form>";
+                echo "<input type=\"number\" name=\sumaTotal\" id=\"sumaTotal\">";
+                echo "<input type=\"hidden\" value=\"$resultadoEsperado\">";
+                echo "<input type=\"hidden\" value=\"$i\">";
+                echo "<input type=\"hidden\" value=\"$numOperaciones\">";
+            echo "</form>";
+            $contSumas++;
+            $i++;
         } else if (!$sumaOresta && $contRestas <= $numRestas) {
-
+            $resultadoEsperado = $operando1 - $operando2;
+            echo "<h2>¿Cual es el resultado de $operando1 - $operando2?</h2>";
+            echo "<form>";
+                echo "<input type=\"number\" name=\"restaTotal\" id=\"restaTotal\">";
+                echo "<input type=\"hidden\" value=\"$resultadoEsperado\">";
+                echo "<input type=\"hidden\" value=\"$i\">";
+                echo "<input type=\"hidden\" value=\"$numOperaciones\">";
+            echo "</form>";
+            $contRestas++;
+            $i++;
         }
         
     ?>
