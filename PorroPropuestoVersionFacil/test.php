@@ -10,13 +10,13 @@
         $nombre = $_GET["nombre"];
         $sumas = $_GET["sumas"];
         $restas = $_GET["restas"];
-        $resultadoSuma = intval($_GET["resultadoSuma"]);
-        $resultadoResta = intval($_GET["resultadoResta"]);
+        $resultadoSuma = $_GET["resultadoSuma"];
+        $resultadoResta = $_GET["resultadoResta"];
         $resultadoEsperadoAnterior = intval($_GET["resultadoEsperado"]);
         $i = intval($_GET["i"]);
 
         if (empty($nombre) || !preg_match("/^[a-zA-Z ]*$/", $nombre)) {
-            echo "<p>Introduce un nombre válido</p>";
+            echo "<p>Introduce un nombre válido.</p>";
         }
         
         if (is_numeric($sumas) && is_numeric($restas)) {
@@ -25,12 +25,16 @@
             if ($numSumas >= 0 && $numRestas >= 0) {
                 $numOperaciones = $numSumas + $numRestas;
             } else {
-                echo "<p>Introduce un valor mayor que 0</p>";
+                echo "<p>Introduce un valor mayor que 0.</p>";
             }
         } else {
-            echo "<p>Introduce valores numéricos</p>";
+            echo "<p>Introduce valores numéricos.</p>";
         }
-
+        
+        if (!is_numeric($resultadoSuma) || !is_numeric($resultadoResta)) {
+            echo "<p>Introduce un valor numérico.</p>";
+        }
+        
         if ($resultadoSuma == $resultadoEsperadoAnterior) {
             $sumasCorrectas++;
         } else if ($resultadoResta == $resultadoEsperadoAnterior) {
