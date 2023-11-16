@@ -1,0 +1,70 @@
+
+body { 
+  background-color: #F6F6FF; 
+  font-family: sans-serif; 
+  padding: 0 20px;
+}
+
+h1 { 
+  margin: 10px;
+  font-size: 140%;
+  text-align: center; 
+  text-transform: uppercase; 
+}
+
+fieldset { 
+  background-color: #E6E6FF;
+  border: #8686FF 3px solid; 
+  padding: 10px 20px 20px;
+} 
+
+legend { 
+  background-color: white; 
+  border: #8686FF 3px solid; 
+  font-size: 120%; 
+  padding: 0px 10px; 
+}
+
+input { 
+  font-family: monospace; 
+}
+
+.error {
+	color: red;
+	text-align: center;
+}
+
+.der { 
+  text-align: right; 
+  margin: 10px 0px; 
+}
+
+address { 
+  clear: both;
+  border-top: black solid 1px; 
+  margin-top: 10px; 
+  padding-top: 5px; 
+}
+
+p.licencia { 
+  text-align: center; 
+}
+table{
+	margin: 0 auto;
+  margin-top: 10px;
+	border: 2px solid #8686FF;
+	width: 100%;
+	text-align: center;
+	background-color: #E6E6FF;
+}
+th, td{
+	border: 1px solid #000;
+}
+
+.centrar{
+  text-align: center;
+}
+
+.centrarContenedor{
+  align-items: center;
+}
