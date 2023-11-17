@@ -1,0 +1,95 @@
+De un form siempre recibimos strings (p.j en un login password).
+convertir al tipo de dato adecuado(por ejemplo con val(intval, intfloat ....)) 
+
+/*$cadena = "123.45";
+$flotante = floatval($cadena);*/
+
+validaciones:
+-si un usuario a introducido un numero real
+-si un usuario a introducido un numero entero
+-si un usuario a introducido una cadena
+
+Para algunas validaciones se utiliza FILTER_VAR
+EJEMPLO:
+filter_var($email, FILTER_VALIDATE_EMAIL)
+
+
+
+/*Aqui estamos validando el email con las propiedades de filter_var*/
+
+
+if(filter_var($email, FILTER_VALIDATE_EMAIL)===false){
+	}else{
+   }
+
+
+se puede validar:
+
+-FILTER_VALIDATE_ip
+-FILTER_VALIDATE_int
+-FILTER_VALIDATE_mac
+-FILTER_VALIDATE_url
+-FILTER_VALIDATE_bool
+-FILTER_VALIDATE_email
+-FILTER_VALIDATE_float
+
+(No hay para dni, ni codigo postal, lo tendriamos que definir nosotros haciendo una expresion regular).
+
+PODEMOS CONSULTAR TODO SOBRE ELLO AQUI (Algunas cosas estan en desuso (DEPRECATED)) : https://www.php.net/manual/en/filter.filters.validate.php
+------------------------------------------------------------------------------------------------------------------------------------
+
+PROPIEDAD SANITAZE : Esta propiedad te elimina las partes que no corresponden al tipo de dato de la variable que has introducido
+
+$entero=33;
+
+echo: 33 Es un numero entero
+
+$entero=a23;
+
+echo: 23 es un numero entero (elimina la a que no pertenece a un numero entero);
+
+$entero=a2+3;
+
+echo: 2+3 es un numero entero ()
+
+/*No se suele utiizar mucho pero en algunos caso esta justificado utilizarlo*/
+
+/*Elimina todos los caracteres y opcionalmente el . poniendo como tercer parametro en el validate ($real, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)
+*/
+
+PODEMOS CONSULTAR TODO SOBRE ELLO AQUI: https://www.php.net/manual/en/filter.filters.sanitize.php
+---------------------------------------------------------------------------------------------------------------------------------
+
+PREG_MATCH (EXPRESIONES REGULARES)
+
+
+/*PROPIEDADES DE PREG_MATCH*/
+
+[abc] Un solo carácter: a, b o c
+[^abc] Cualquier carácter excepto a, b o c
+[a-z] Cualquier carácter en el rango a-z
+[a-zA-Z] Cualquier carácter en el rango a-z o A-Z
+^ Inicio de línea
+$ Fin de línea
+\A Inicio de cadena
+\z Fin de la cadena
+. Cualquier carácter
+\s Cualquier carácter de espacio en blanco
+\S Cualquier carácter que no sea un espacio en blanco
+\d Cualquier dígito
+\D Cualquiera que no sea un dígito
+\w Cualquier carácter de palabra (letra, número, guión bajo)
+\W Cualquier carácter que no sea una palabra
+\b Cualquier carácter de límite de palabra
+(...) Captura todo lo encerrado
+(a|b) a o b
+¿a? Cero o uno de un
+a* Cero o más 
+a+ Uno o más de un
+a{3} Exactamente 3 
+a{3,} 3 o más 
+a{3,6} Entre 3 y 6 
+
+CONSULTA TODO AQUI: https://www.php.net/manual/es/function.preg-match.php
+
+---------------------------------------------------------------------------------------
