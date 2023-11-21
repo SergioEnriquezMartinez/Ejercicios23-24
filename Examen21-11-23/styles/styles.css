@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: aqua;
+}
+
+main {  
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#resultado {
+    display: flex;
+    justify-content: center;
+}
+
+#resultaddo div {
+    padding: 2%;
+}
+
+pre {
+    display: inline-block;
+    font-size: 3rem;
+    background-color: cadetblue;
+}
+
+.error {
+    color: red;
+    font-size: 2rem;
+    text-align: center;
+}
