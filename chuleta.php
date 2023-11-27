@@ -87,4 +87,17 @@ foreach($arrayNumeros as $valor) echo $valor; //forEach
 foreach ($frutas as $key => $value) { echo "$key+$value";
 }
 
+
+//SERIALIZAR Y DESERIALIZAR
+$frutas = ["Banzanas" => 3, "Aaranjas" => 2, "Cvas" => 5];
+$frutasSerializadas = serialize($frutas);
+//var_dump($frutasSerializadas);
+$frutasDeserializadas = unserialize($frutasSerializadas);
+
+//ENCODE Y DECODE
+$frutas = ["Banzanas" => 3, "Aaranjas" => 2, "Cvas" => 5];
+$frutasEncode = urlencode(serialize($frutas));
+//var_dump($frutasEncode);
+$frutasDecode = unserialize(urldecode($frutasEncode));
+//var_dump($frutasDecode);
 /*---------------------------------------------------------------------------------*/
