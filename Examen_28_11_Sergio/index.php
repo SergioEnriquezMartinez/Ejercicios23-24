@@ -1,4 +1,6 @@
 <?php
+
+require_once "autoload.php";
 use Classes\Cliente;
 use Classes\Factura;
 
