@@ -1,3 +1,9 @@
+<!--
+    Un ejercicio para almacenar numeros aleatorios cada vez que actualicemos la pagina
+    siempre y cuando las cookies esten activadas.
+    Debe mostrarnos también lo que tiene almacenado.
+-->
+
 <?php
     
     $datos = array();
