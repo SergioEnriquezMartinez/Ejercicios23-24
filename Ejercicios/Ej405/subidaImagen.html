@@ -1,0 +1,33 @@
+<!--
+    Modifica el ejercicio anterior para que únicamente permita subir imágenes (comprueba la propiedad type del archivo subido).
+    Si el usuario selecciona otro tipo de archivos, se le debe informar del error y permitir que suba un nuevo archivo.
+    En el caso de subir el tipo correcto, visualizar la imagen con el tamaño de anchura y altura recibido como parámetro.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 404</title>
+</head>
+<body>
+    <main>
+        <form enctype="multipart/form-data" action="subida.php" method="post">
+            <p>
+                <label for="imagen">Imagen:</label>
+                <input type="image" name="imagen" id="imagen" required>
+            </p>
+            <p>
+                <label for="ancho">Ancho:</label>
+                <input type="number" name="ancho" id="ancho" required>
+            </p>
+            <p>
+                <label for="alto">Alto:</label>
+                <input type="number" name="alto" id="alto" required>
+            </p>
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </main>
+</body>
+</html>
