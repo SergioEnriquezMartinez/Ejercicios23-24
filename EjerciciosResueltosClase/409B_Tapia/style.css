@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+}
+td,th{
+    padding: 1em;
+    border: solid 1px black;
+}
