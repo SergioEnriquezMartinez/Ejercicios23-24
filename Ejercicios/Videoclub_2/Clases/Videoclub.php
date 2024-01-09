@@ -1,9 +1,10 @@
 <?php
 
-    include_once "Cliente.php";
-    include_once "Dvd.php";
-    include_once "CintaVideo.php";
-    include_once "Juego.php";
+    namespace Clases;
+
+    use Clases\Excepciones\ClienteNoEncontradoException;
+    use Clases\Excepciones\SoporteNoEncontradoException;
+use Clases\Excepciones\SoporteYaAlquiladoException;
 
     class Videoclub
     {
@@ -67,15 +68,88 @@
 
         public function alquilarSocioProducto($numeroSocio, $numeroProducto)
         {
+            if (!isset($this->socios[$numeroSocio]))
+            {
+                throw new ClienteNoEncontradoException("El cliente no existe");
+            }
+            if (!isset($this->productos[$numeroProducto]))
+            {
+                throw new SoporteNoEncontradoException("El producto no existe");
+            }
+
             $socio = $this->socios[$numeroSocio];
             $producto = $this->productos[$numeroProducto];
-            if ($socio->alquilar($producto)) {
-                echo "<p>El producto ha sido alquilado a ".$socio->nombre."</p>";
-                return $socio->muestraResumen();
-            } else {
-                echo "<p>El producto no ha podido ser alquilado a ".$socio->nombre."</p>";
-                return $socio->muestraResumen();
+            $socio->alquilar($producto);
+            return $this;
+        }
+
+        public function alquilarSocioProductos($numeroSocio, $numerosProductos)
+        {
+            if (!isset($this->socios[$numeroSocio]))
+            {
+                throw new ClienteNoEncontradoException("El cliente no existe");
             }
+            $socio = $this->socios[$numeroSocio];
+
+            foreach ($numerosProductos as $producto) {
+                if (!isset($producto) && !in_array($producto, $numerosProductos))
+                {
+                    throw new SoporteNoEncontradoException("El producto no existe");
+                }
+
+                if ($producto->alquilado)
+                {
+                    throw new SoporteYaAlquiladoException("El producto ya está alquilado");
+                }
+                else
+                {
+                    $socio->alquilar($producto);
+                }
+            }
+            return $this;
+        }
+
+        public function devolverSocioProducto($numeroSocio, $numeroProducto)
+        {
+            if (!isset($this->socios[$numeroSocio]))
+            {
+                throw new ClienteNoEncontradoException("El cliente no existe");
+            }
+            if (!isset($this->productos[$numeroProducto]))
+            {
+                throw new SoporteNoEncontradoException("El producto no existe");
+            }
+
+            $socio = $this->socios[$numeroSocio];
+            $producto = $this->productos[$numeroProducto];
+            $socio->devolver($producto);
+            return $this;
+        }
+        
+        public function devolverSocioProductos($numeroSocio, $numerosProductos)
+        {
+            if (!isset($this->socios[$numeroSocio]))
+            {
+                throw new ClienteNoEncontradoException("El cliente no existe");
+            }
+            $socio = $this->socios[$numeroSocio];
+
+            foreach ($numerosProductos as $producto) {
+                if (!isset($producto) && in_array($producto, $numerosProductos))
+                {
+                    throw new SoporteNoEncontradoException("El producto no existe");
+                }
+
+                if (!$producto->alquilado)
+                {
+                    throw new SoporteYaAlquiladoException("El producto no está alquilado");
+                }
+                else
+                {
+                    $socio->devolver($producto);
+                }
+            }
+            return $this;
         }
     }
 ?>

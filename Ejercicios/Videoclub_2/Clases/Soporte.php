@@ -1,5 +1,5 @@
 <?php
-    include_once "Resumible.php";
+    namespace Clases;
     abstract class Soporte implements Resumible
     {
         
@@ -7,12 +7,14 @@
         protected $numero;
         private $precio;
         const IVA = 21;
+        public $alquilado;
 
         public function __construct($titulo, $numero, $precio)
         {
             $this->titulo = $titulo;
             $this->numero = $numero;
             $this->precio = $precio;
+            $this->alquilado = false;
         }
 
         public function getPrecio()

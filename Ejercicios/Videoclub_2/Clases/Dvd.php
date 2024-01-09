@@ -1,5 +1,6 @@
 <?php
-    include_once "Soporte.php";
+    namespace Clases;
+    use Clases\Soporte;
     class Dvd extends Soporte
     {
         

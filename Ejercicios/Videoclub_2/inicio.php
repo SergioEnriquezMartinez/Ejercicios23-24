@@ -1,9 +1,11 @@
 <?php
-
-    include "Soporte.php";
-    include "CintaVideo.php";
-    include "Dvd.php";
-    include "Juego.php";
+/*
+    include_once "autoload.php";
+    use Clases\Soporte;
+    use Clases\CintaVideo;
+    use Clases\Dvd;
+    use Clases\Juego;
+    
 
     //Soporte Pruebas
     $soporte = new Soporte("Tenet", 22, 3);
@@ -33,4 +35,6 @@
     echo "<p>Precio: ".$juego->getPrecio()."</p>";
     echo "<p>Precio IVA incluido: ".$juego->getPrecioConIva()." euros</p>";
     $juego->muestraResumen();
+    
+*/
 ?>
