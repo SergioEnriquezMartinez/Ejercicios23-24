@@ -1,4 +1,5 @@
 <?php
+/*
 namespace Classes;
 use classes\Validations;
 use classes\exceptions\ExceptionMes;
@@ -9,7 +10,7 @@ use classes\Generics;
 use classes\Cliente;
 
 class Factura {
-    const int IVA = 10;
+    const IVA = 10;
     private string $idFactura;
     private string $concepto;
     private int $mes;
@@ -94,5 +95,5 @@ class Factura {
     }
 
 }
-
+*/
 ?>
