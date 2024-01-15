@@ -1,0 +1,6 @@
+Sergio | Enriquez | 65 | Le queda menos que a Joao en el futbol de elite | Muy grave
+Manuel | Manzano | 35 | Ha intentado hacer php | Terminal
+Michel | Salgado | 19 | Lleva sin estudiar media vida | Terminal
+Alexu | Popa | 27 | Esta enamorado de un gusano | Terminal
+Pepe | Garcia | 56 | esta mas muerto que vivo | Muy leve
+Pepito | Fernandez | 65 | fasdfasdfasdf | Leve

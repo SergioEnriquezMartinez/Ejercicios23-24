@@ -1,19 +1,41 @@
-    <?php include_once 'inc/header.html' ?>
+<?php
+    include_once 'inc/header.html';
+    include_once 'consultarEstados.php';
+    session_start();
+?>
     <h1>Alta pacientes</h1>
     <fieldset>
 
-        <form action="validaForm.php" method="post">
+        <form action="validaForm.php" method="post" id="altaPaciente">
             <p>
                 <label for="nombre">Nombre Paciente</label>
-                <input type="text" name="nombre" id="nombre">
+                <?php
+                    if (isset($_SESSION['nombre'])) {
+                        echo '<input type="text" name="nombre" id="nombre" value="' . $_SESSION['nombre']. '">';
+                    } else {
+                        echo '<input type="text" name="nombre" id="nombre">' ;
+                    }
+                ?>
             </p>
             <p>
                 <label for="priApe">Primer Apellido</label>
-                <input type="text" name="priApe" id="priApe">
+                <?php
+                    if (isset($_SESSION['priApe'])) {
+                        echo '<input type="text" name="priApe" id="priApe" value="' . $_SESSION['priApe']. '">';
+                    } else {
+                        echo '<input type="text" name="priApe" id="priApe">' ;
+                    }
+                ?>
             </p>
             <p>
                 <label for="edad">Edad cuando ingresó</label>
-                <input type="number" name="edad" id="edad">
+                <?php
+                    if (isset($_SESSION['edad'])) {
+                        echo '<input type="text" name="edad" id="edad" value="' . $_SESSION['edad']. '">';
+                    } else {
+                        echo '<input type="text" name="edad" id="edad">' ;
+                    }
+                ?>
             </p>
             <p>
                 <label for="estado">Estado</label>
@@ -25,17 +47,24 @@
             </p>
             <p>
                 <label for="diagnostigo">Diagnóstico</label>
-                <textarea name="diagnostico" id="diagnostico" cols="30" rows="10"></textarea>
+                <?php
+                    if (isset($_SESSION['diagnostico'])) {
+                        echo '<textarea name="diagnostico" id="diagnostico" cols="30" rows="10">' . $_SESSION['diagnostico']. '</textarea>';
+                    } else {
+                        echo '<textarea name="diagnostico" id="diagnostico" cols="30" rows="10"></textarea>' ;
+                    }
+                ?>
             </p>
             <input type="submit" value="Enviar">
             <input type="reset" value="Limpiar">
         </form>
         <?php
-        include_once 'consultarEstados.php';
-        session_start();
         if (isset($_SESSION['errores'])) {
             echo $_SESSION['errores'];
-            unset($_SESSION['errores']);
+            session_destroy();
+        } else if (isset($_SESSION['correcto'])) {
+            echo $_SESSION['correcto'];
+            session_destroy();
         }
         ?>
         <p><a href="mostrarPaciente.php">Mostrar Pacientes</a></p>
