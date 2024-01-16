@@ -1,0 +1,23 @@
+{
+    "name": "iesam/proyecto",
+    "description": "Ejemplo del uso de composer",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Iesam\\ProyectoMonolog\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Javi"
+        },
+        {
+            "name": "Otro colaborador"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.5",
+        "fpdf/fpdf": "^1.86"
+    }
+}

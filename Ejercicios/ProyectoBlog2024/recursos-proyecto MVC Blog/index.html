@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Blog Alonso de Madrigal</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+	<body>
+		<!-- CABECERA -->
+		<header id="cabecera">
+			<!-- LOGO -->
+			<div id="logo"><a href="">Blog Alonso de Madrigal</a></div>
+			
+			<!-- MENU -->
+			<nav id="menu">
+				<ul>
+					<li>
+						<a href="">Inicio</a>
+					</li>
+					<li> <a href="">BBDD</a></li>
+					<li> <a href="">DWEC</a></li>
+					<li> <a href="">DWES</a></li>
+					<li> <a href="">LM</a></li>
+					<li> <a href="">Sobre mí</a></li>
+					<li> <a href="">Contacto</a></li>						
+				</ul>
+			</nav>
+			
+			<div class="clearfix"></div>
+		</header>
+		
+	<div id="contenedor">			
+
+			
+
+	<!-- BARRA LATERAL -->
+	<aside id="sidebar">
+	
+		<div id="buscador" class="bloque">
+			<h3>Buscar</h3>
+
+			<form action='' method='get'> 
+				<input type="text" name="b" />
+				<input type="submit" value="Buscar" />
+			</form>
+		</div>
+	
+	
+		<div id='login' class='bloque'>
+			<h3>Identificate</h3>
+			<form action='' method='post'> 
+				<label for='idLoginEmail'>Email</label>
+				<input type='email' name='email' id='idLoginEmail' />
+
+				<label for='idLoginPassword'>Contraseña</label>
+				<input type='password' name='password' id='idLoginPassword' />
+
+				<input type='submit' value='Entrar' name='btnLogin' />
+			</form>
+		</div>
+		
+		<div id='register' class='bloque'>
+			<h3>Registrate</h3>
+			<form action='' method='post'> 
+				<label for='idNombre'>Nombre</label>
+				<input type='text' name='nombre' id='idNombre' />
+				<label for='idApellidos'>Apellidos</label>
+				<input type='text' name='apellidos' id='idApellidos' />
+				<label for='idEmail'>Email</label>
+				<input type='text' name='email' id='idEmail' />
+				<label for='idPassword'>Contraseña</label>
+				<input type='password' name='password' id='idPassword' />
+				<label for='idPassword2'>Repite la contraseña</label>
+				<input type='password' name='password2' id='idPassword2' />
+				<input type='submit' name='btnRegistro' value='Registrar' />			
+			</form>
+		</div>
+	</aside>
+
+	<!-- Capa Principal -->
+	<div id="principal">
+		<h1> Ultimas entradas </h1>
+		
+		<article class='entrada'>
+			<a href='' >
+				<h2> Entrada Nueva3 </h2>
+				<span class='fecha'> LM | 2023-02-01 </span>
+				<p> Parece que funciona ... </p>
+            </a>
+		</article>
+		
+		<article class='entrada'>
+			<a href='' >
+				<h2> Entrada Nueva2 </h2>
+				<span class='fecha'> BBDD | 2023-01-20 </span>
+				<p> Parece que funciona ... </p>
+            </a>
+		</article>
+
+		<article class='entrada'>
+			<a href='' >
+				<h2> Entrada Nueva1 </h2>
+				<span class='fecha'> DWEC | 2023-01-04 </span>
+				<p> Parece que funciona ... </p>
+            </a>
+		</article>
+
+	</div> <!-- Fin Principal -->
+
+	<div class="clearfix"></div>
+	
+	</div> <!-- fin contenedor -->
+
+	<!-- PIE DE PÁGINA -->
+	<footer id="pie">
+		<p>IES Alonso de Madrigal &copy; 2023</p>
+	</footer>
+		
+</body>
+</html>

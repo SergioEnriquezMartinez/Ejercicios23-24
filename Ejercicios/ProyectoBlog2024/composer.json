@@ -1,0 +1,12 @@
+{
+    "name": "mgj/proyecto-blog2024",
+    "description": "Blog MVC",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mgj\\ProyectoBlog2024\\": "src/"
+        }
+    },
+    "require": {}
+}

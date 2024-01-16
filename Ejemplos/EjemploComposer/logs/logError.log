@@ -1,0 +1,12 @@
+[2024-01-11T11:20:44.797092+01:00] MiLogger.ERROR: Esto es un mensaje de ERROR [] []
+[2024-01-11T11:20:44.797497+01:00] MiLogger.CRITICAL: Esto es un mensaje de CRITICAL [] []
+[2024-01-11T11:20:44.797554+01:00] MiLogger.ALERT: Esto es un mensaje de ALERT [] []
+[2024-01-11T11:20:44.797615+01:00] MiLogger.ERROR: Producto no encontrado {"codProducto":3} []
+[2024-01-11T11:23:47.099288+01:00] Cliente.ERROR: Esto es un mensaje de ERROR [] []
+[2024-01-11T11:23:47.099596+01:00] Cliente.CRITICAL: Esto es un mensaje de CRITICAL [] []
+[2024-01-11T11:23:47.099647+01:00] Cliente.ALERT: Esto es un mensaje de ALERT [] []
+[2024-01-11T11:23:47.099702+01:00] Cliente.ERROR: Producto no encontrado {"codProducto":3} []
+[2024-01-11T11:27:34.013620+01:00] Cliente.ERROR: Esto es un mensaje de ERROR [] {"file":"C:\\xampp\\htdocs\\Ejercicios_23-24\\EjemploComposer\\pruebaLog.php","line":21,"class":null,"callType":null,"function":null}
+[2024-01-11T11:27:34.015296+01:00] Cliente.CRITICAL: Esto es un mensaje de CRITICAL [] {"file":"C:\\xampp\\htdocs\\Ejercicios_23-24\\EjemploComposer\\pruebaLog.php","line":22,"class":null,"callType":null,"function":null}
+[2024-01-11T11:27:34.015384+01:00] Cliente.ALERT: Esto es un mensaje de ALERT [] {"file":"C:\\xampp\\htdocs\\Ejercicios_23-24\\EjemploComposer\\pruebaLog.php","line":23,"class":null,"callType":null,"function":null}
+[2024-01-11T11:27:34.015448+01:00] Cliente.ERROR: Producto no encontrado {"codProducto":3} {"file":"C:\\xampp\\htdocs\\Ejercicios_23-24\\EjemploComposer\\pruebaLog.php","line":27,"class":null,"callType":null,"function":null}
