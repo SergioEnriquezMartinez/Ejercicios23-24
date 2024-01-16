@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $consultaMostrarPacientes = "SELECT nombre, priApe, edadIngreso, diagnostico, descripcion
                                         FROM paciente p
                                         JOIN estado e ON p.codEstado = e.codEstado
-                                        WHERE descripcion LIKE :estado";
+                                        WHERE descripcion = :estado";
         $sentenciaMostrarPacientes = $db->prepare($consultaMostrarPacientes);
         $sentenciaMostrarPacientes->bindParam(':estado', $_POST['estado']);
         $sentenciaMostrarPacientes->setFetchMode(PDO::FETCH_ASSOC);
