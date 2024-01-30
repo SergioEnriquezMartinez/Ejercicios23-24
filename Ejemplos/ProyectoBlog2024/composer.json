@@ -1,0 +1,10 @@
+{
+    "name": "sergi/proyecto-blog2024",
+    "description": "proyectoBlog2024",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\ProyectoBlog2024\\": "src/"
+        }
+    },
+    "require": {}
+}
