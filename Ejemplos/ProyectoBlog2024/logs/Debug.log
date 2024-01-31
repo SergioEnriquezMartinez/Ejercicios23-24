@@ -1,0 +1,6 @@
+[2024-01-31T11:32:42.681556+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:32:43.882346+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":"2","regOrigen":3} []
+[2024-01-31T11:33:52.963410+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:33:53.781535+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":"2","regOrigen":3} []
+[2024-01-31T11:33:54.592130+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:33:55.398243+01:00] EntradaController.DEBUG: DEBUG. Metodo All: Paginacion {"page":"2","regOrigen":3} []

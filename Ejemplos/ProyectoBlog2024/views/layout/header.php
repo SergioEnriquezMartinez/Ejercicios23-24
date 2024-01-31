@@ -6,7 +6,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Blog Alonso de Madrigal</title>
-		<link rel="stylesheet" type="text/css" href="<?=Parameters::$BASE_URL?>assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="<?=Parameters::$BASE_URL?>assets/css/zebra_pagination.css" />
+		<link rel="stylesheet" type="text/css" href="<?=Parameters::$BASE_URL?>assets/css/style.css" />		
 	</head>
 	<body>
 		<!-- CABECERA -->

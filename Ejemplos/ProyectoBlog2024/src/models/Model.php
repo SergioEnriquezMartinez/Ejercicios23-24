@@ -48,4 +48,22 @@ class Model{
             return NULL;
         }        
     }
+
+    public function getAllCount(){
+        try {
+
+            $consulta = "select count(*) as cuenta from {$this->tabla}";
+
+            $sentencia = $this->conn->prepare($consulta);
+            $sentencia->setFetchMode(\PDO::FETCH_OBJ);
+            $sentencia->execute();
+            $resultado = $sentencia->fetch();
+            return $resultado->cuenta;
+
+        } catch (\PDOException $e) {
+            echo '<p>Fallo en la conexion:' . $e->getMessage() . '</p>';
+            // Registrar en un sistema de Log
+            return NULL;
+        }        
+    }
 }

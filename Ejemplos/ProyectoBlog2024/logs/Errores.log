@@ -1,0 +1,6 @@
+[2024-01-31T11:32:42.683087+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:32:43.883424+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":"2","regOrigen":3} []
+[2024-01-31T11:33:52.964466+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:33:53.782571+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":"2","regOrigen":3} []
+[2024-01-31T11:33:54.593230+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":1,"regOrigen":0} []
+[2024-01-31T11:33:55.399307+01:00] EntradaController.ERROR: ERROR. Metodo All: Paginacion {"page":"2","regOrigen":3} []

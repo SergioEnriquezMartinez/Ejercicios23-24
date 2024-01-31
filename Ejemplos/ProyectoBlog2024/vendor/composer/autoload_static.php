@@ -7,21 +7,60 @@ namespace Composer\Autoload;
 class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
 {
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'P' => 
         array (
-            'Sergi\\ProyectoBlog2024\\' => 23,
+            'Psr\\Log\\' => 8,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+            'Mgj\\ProyectoBlog2024\\Models\\' => 28,
+            'Mgj\\ProyectoBlog2024\\Helpers\\' => 29,
+            'Mgj\\ProyectoBlog2024\\Entities\\' => 30,
+            'Mgj\\ProyectoBlog2024\\Database\\' => 30,
+            'Mgj\\ProyectoBlog2024\\Controllers\\' => 33,
+            'Mgj\\ProyectoBlog2024\\Config\\' => 28,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sergi\\ProyectoBlog2024\\' => 
+        'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Mgj\\ProyectoBlog2024\\Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/models',
+        ),
+        'Mgj\\ProyectoBlog2024\\Helpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/helpers',
+        ),
+        'Mgj\\ProyectoBlog2024\\Entities\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/entities',
+        ),
+        'Mgj\\ProyectoBlog2024\\Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/database',
+        ),
+        'Mgj\\ProyectoBlog2024\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/controllers',
+        ),
+        'Mgj\\ProyectoBlog2024\\Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/config',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Zebra_Pagination' => __DIR__ . '/..' . '/stefangabos/zebra_pagination/Zebra_Pagination.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

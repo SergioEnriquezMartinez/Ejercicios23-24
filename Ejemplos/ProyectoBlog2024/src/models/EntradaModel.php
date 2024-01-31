@@ -32,6 +32,31 @@ class EntradaModel extends Model{
         }      
     }
 
+    public function getEntradas($limInicial = NULL, $limFinal = NULL){
+        try {
+
+            $consulta = "select e.*, c.nombre as nombreCategoria
+                        from entradas e inner join categorias c 
+                            on (e.categoria_id = c.id)
+                        order by id desc";
+
+            if (isset($limInicial) && isset($limFinal)){
+                $consulta .= " limit $limInicial, $limFinal";
+            }
+
+            $sentencia = $this->conn->prepare($consulta);
+            $sentencia->setFetchMode(\PDO::FETCH_ASSOC);
+            $sentencia->execute();
+
+            $resultado = $sentencia->fetchAll();
+            return $resultado;
+
+        } catch (\PDOException $e) {
+            echo '<p>Fallo en la conexion:' . $e->getMessage() . '</p>';
+            return NULL;
+        }      
+    }
+
     public function getEntradasCategoria($idCategoria){
         try {
 

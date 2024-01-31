@@ -6,5 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Sergi\\ProyectoBlog2024\\' => array($baseDir . '/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Mgj\\ProyectoBlog2024\\Models\\' => array($baseDir . '/src/models'),
+    'Mgj\\ProyectoBlog2024\\Helpers\\' => array($baseDir . '/src/helpers'),
+    'Mgj\\ProyectoBlog2024\\Entities\\' => array($baseDir . '/src/entities'),
+    'Mgj\\ProyectoBlog2024\\Database\\' => array($baseDir . '/src/database'),
+    'Mgj\\ProyectoBlog2024\\Controllers\\' => array($baseDir . '/src/controllers'),
+    'Mgj\\ProyectoBlog2024\\Config\\' => array($baseDir . '/src/config'),
 );
