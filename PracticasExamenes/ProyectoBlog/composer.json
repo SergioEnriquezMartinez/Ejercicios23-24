@@ -1,0 +1,9 @@
+{
+    "name": "sergi/proyecto-blog",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\ProyectoBlog\\": "src/"
+        }
+    },
+    "require": {}
+}
