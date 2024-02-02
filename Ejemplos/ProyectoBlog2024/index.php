@@ -13,6 +13,7 @@ use Mgj\ProyectoBlog2024\Controllers\ErrorController;
     URL Amigable:
     http://www.blogjavi.es/Entrada/getAll
 */
+$_SESSION["user"] = "abc";
 
 // CONTROLADOR FRONTAL:
     $nameController = "Mgj\ProyectoBlog2024\Controllers\\";

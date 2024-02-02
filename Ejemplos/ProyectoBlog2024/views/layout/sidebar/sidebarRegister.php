@@ -1,5 +1,7 @@
 <?php
     use Mgj\ProyectoBlog2024\Config\Parameters;
+
+	if (!isset($_SESSION["user"])){
 ?>
     <div id='register' class='bloque'>
 			<h3>Registrate</h3>
@@ -26,3 +28,7 @@
 				<input type='submit' name='btnRegistro' value='Registrar' />			
 			</form>
 		</div>
+
+<?php
+	}
+?>

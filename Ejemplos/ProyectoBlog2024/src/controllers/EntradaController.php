@@ -12,7 +12,7 @@ class EntradaController{
     private LoggerInterface $log;
 
     public function __construct(){
-        $this->log = LogFactory::getLogger("EntradaController");
+        $this->log = LogFactory::getLogger();
     }
 
     public function index($param){
@@ -43,8 +43,13 @@ class EntradaController{
         $regOrigen = ($page - 1) * Parameters::$PAGINATION_NUM_RECORDS;
         $entradas = $entradaModel->getEntradas($regOrigen, Parameters::$PAGINATION_NUM_RECORDS);
 
-        $this->log->debug("DEBUG. Metodo All: Paginacion", ["page" => $page, "regOrigen" => $regOrigen]);
-        $this->log->error("ERROR. Metodo All: Paginacion", ["page" => $page, "regOrigen" => $regOrigen]);
+        $this->log->debug("Metodo All: Paginacion", ["page" => $page, "regOrigen" => $regOrigen]);
+        $this->log->error("Metodo All: Paginacion", ["page" => $page, "regOrigen" => $regOrigen]);
+        
+        // Obtener información para generar el PDF:
+        //$_SESSION["entradasPDF"] = $entradas; // Entradas paginadas
+        $_SESSION["entradasPDF"] = $entradaModel->getEntradas();
+        $_SESSION["tituloPDF"] = "Todas las Entradas";
 
         // Vista:    
         $info = "Todas las entradas (Página {$pagination->get_page()})";
@@ -69,6 +74,8 @@ class EntradaController{
             $entradas = $entradaModel->getEntradasCategoria($idCategoria);
 
             // Vista:
+            $_SESSION["entradasPDF"] = $entradas;
+            $_SESSION["tituloPDF"] = "Entradas de la Categoria " . $categoria->nombre;
             ViewController::show('views/entradas/showEntradasCategoria.php', ["entradas" => $entradas, "categoria" => $categoria]);
         }
     }

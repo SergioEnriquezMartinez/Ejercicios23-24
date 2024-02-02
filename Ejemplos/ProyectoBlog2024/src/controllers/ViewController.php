@@ -22,8 +22,7 @@ class ViewController{
     private static function showHeader(){
         $categoriaModel = new CategoriaModel();
         $categorias = $categoriaModel->getAll();
-        include 'views/layout/header.php';
-        
+        include 'views/layout/header.php';        
     }
     private static function showSidebar(){
         include 'views/layout/sidebar.php';

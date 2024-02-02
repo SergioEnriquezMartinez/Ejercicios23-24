@@ -21,4 +21,6 @@ if ($entradas == NULL){
     }
 
     if (isset($data["pagination"])) $data["pagination"]->render();
+    echo "<div><a href='".Parameters::$BASE_URL . "Pdf/print" ."' class='boton boton-verde'>Generar PDF</a></div>";
+    
 }

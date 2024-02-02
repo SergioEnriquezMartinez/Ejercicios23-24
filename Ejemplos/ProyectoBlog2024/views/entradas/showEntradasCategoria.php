@@ -20,4 +20,6 @@ if ($entradas == NULL){
             echo "</a>";
         echo "</article>";
     }
+
+    echo "<div><a href='".Parameters::$BASE_URL . "Pdf/print" ."' class='boton boton-verde'>Generar PDF</a></div>";
 }
