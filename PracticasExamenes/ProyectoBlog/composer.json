@@ -8,7 +8,8 @@
             "Sergi\\ProyectoBlog\\Contoladores\\": "src/controladores/",
             "Sergi\\ProyectoBlog\\Modelos\\": "src/modelos/",
             "Sergi\\ProyectoBlog\\Vistas\\": "src/vistas/",
-            "Sergi\\ProyectoBlog\\Ayudantes\\": "src/ayudantes/"
+            "Sergi\\ProyectoBlog\\Ayudantes\\": "src/ayudantes/",
+            "Sergi\\ProyectoBlog\\Entidades\\": "src/entidades/"
         }
     },
     "require": {
