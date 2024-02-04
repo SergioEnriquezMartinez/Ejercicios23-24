@@ -4,12 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
+class ComposerStaticInit286e666609d0e3d133195abccc674a7c
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Spipu\\Html2Pdf\\' => 15,
+            'Sergi\\ProyectoBlog\\Database\\' => 28,
+            'Sergi\\ProyectoBlog\\Config\\' => 26,
+            'Sergi\\ProyectoBlog\\' => 19,
         ),
         'P' => 
         array (
@@ -18,12 +21,6 @@ class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
         'M' => 
         array (
             'Monolog\\' => 8,
-            'Mgj\\ProyectoBlog2024\\Models\\' => 28,
-            'Mgj\\ProyectoBlog2024\\Helpers\\' => 29,
-            'Mgj\\ProyectoBlog2024\\Entities\\' => 30,
-            'Mgj\\ProyectoBlog2024\\Database\\' => 30,
-            'Mgj\\ProyectoBlog2024\\Controllers\\' => 33,
-            'Mgj\\ProyectoBlog2024\\Config\\' => 28,
         ),
     );
 
@@ -32,6 +29,18 @@ class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
         array (
             0 => __DIR__ . '/..' . '/spipu/html2pdf/src',
         ),
+        'Sergi\\ProyectoBlog\\Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/database',
+        ),
+        'Sergi\\ProyectoBlog\\Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/config',
+        ),
+        'Sergi\\ProyectoBlog\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
@@ -39,30 +48,6 @@ class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
-        ),
-        'Mgj\\ProyectoBlog2024\\Models\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/models',
-        ),
-        'Mgj\\ProyectoBlog2024\\Helpers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/helpers',
-        ),
-        'Mgj\\ProyectoBlog2024\\Entities\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/entities',
-        ),
-        'Mgj\\ProyectoBlog2024\\Database\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/database',
-        ),
-        'Mgj\\ProyectoBlog2024\\Controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/controllers',
-        ),
-        'Mgj\\ProyectoBlog2024\\Config\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/config',
         ),
     );
 
@@ -88,9 +73,9 @@ class ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit014323cd70da9a303a7cd1251e2bb7c0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit286e666609d0e3d133195abccc674a7c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit286e666609d0e3d133195abccc674a7c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit286e666609d0e3d133195abccc674a7c::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => 'mgj/proyecto-blog2024',
+        'name' => 'sergi/proyecto-blog',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'abb4e6a6acff443d25242261c8a22ec96d1d8510',
-        'type' => 'project',
+        'reference' => '2b35fa9cef4e547ef6208f3dea602c83270223b9',
+        'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'mgj/proyecto-blog2024' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'abb4e6a6acff443d25242261c8a22ec96d1d8510',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'monolog/monolog' => array(
             'pretty_version' => '3.5.0',
             'version' => '3.5.0.0',
@@ -42,6 +33,15 @@
             'provided' => array(
                 0 => '3.0.0',
             ),
+        ),
+        'sergi/proyecto-blog' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '2b35fa9cef4e547ef6208f3dea602c83270223b9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'spipu/html2pdf' => array(
             'pretty_version' => 'v5.2.8',

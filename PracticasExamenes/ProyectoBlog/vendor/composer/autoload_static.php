@@ -10,6 +10,12 @@ class ComposerStaticInit286e666609d0e3d133195abccc674a7c
         'S' => 
         array (
             'Spipu\\Html2Pdf\\' => 15,
+            'Sergi\\ProyectoBlog\\Vistas\\' => 26,
+            'Sergi\\ProyectoBlog\\Modelos\\' => 27,
+            'Sergi\\ProyectoBlog\\Database\\' => 28,
+            'Sergi\\ProyectoBlog\\Contoladores\\' => 32,
+            'Sergi\\ProyectoBlog\\Config\\' => 26,
+            'Sergi\\ProyectoBlog\\Ayudantes\\' => 29,
             'Sergi\\ProyectoBlog\\' => 19,
         ),
         'P' => 
@@ -26,6 +32,30 @@ class ComposerStaticInit286e666609d0e3d133195abccc674a7c
         'Spipu\\Html2Pdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/spipu/html2pdf/src',
+        ),
+        'Sergi\\ProyectoBlog\\Vistas\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/vistas',
+        ),
+        'Sergi\\ProyectoBlog\\Modelos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/modelos',
+        ),
+        'Sergi\\ProyectoBlog\\Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/database',
+        ),
+        'Sergi\\ProyectoBlog\\Contoladores\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/controladores',
+        ),
+        'Sergi\\ProyectoBlog\\Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/config',
+        ),
+        'Sergi\\ProyectoBlog\\Ayudantes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/ayudantes',
         ),
         'Sergi\\ProyectoBlog\\' => 
         array (

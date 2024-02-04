@@ -9,7 +9,7 @@ class ConfiguracionBD
     public static $CHARSET = 'UTF8';
     public static $DB_NAME = 'blog';
     public static $DB_USER = 'blog';
-    public static $DB_PASSWORD = 'q7!QM30xY0VgbizL';
+    public static $DB_PASSWORD = 'NL239EbyH7Z-e8C2';
 }
 
 ?>
