@@ -16,7 +16,7 @@
 
         public function getOne($id) {
             try {
-            $consulta = 'SELECT * FROM {$this->tabla} WHERE id = $id';
+            $consulta = 'SELECT * FROM ' . $this->tabla .' WHERE id = $id';
 
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(':id', $id);
@@ -36,9 +36,9 @@
 
         public function getAll() {
             try {
-                $consulta = 'SELECT * FROM {$this->tabla}';
+                $consulta = 'SELECT * FROM ' . $this->tabla;
                 
-                $sentencia = $this->conexion->prepare(($consulta));
+                $sentencia = $this->conexion->prepare($consulta);
                 $sentencia->setFetchMode(\PDO::FETCH_OBJ);
                 $sentencia->execute();
 
@@ -55,7 +55,7 @@
 
         public function getAllCount() {
             try {
-                $consulta = 'SELECT COUNT(*) FROM {$this->tabla}';
+                $consulta = 'SELECT COUNT(*) FROM ' .$this->tabla;
 
                 $sentencia = $this->conexion->prepare($consulta);
                 $sentencia->setFetchMode(\PDO::FETCH_OBJ);

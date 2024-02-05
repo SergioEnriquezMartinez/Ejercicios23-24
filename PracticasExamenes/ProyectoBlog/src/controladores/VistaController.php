@@ -3,7 +3,7 @@
     use Sergi\ProyectoBlog\Modelos\CategoriaModelo;
     use Sergi\ProyectoBlog\Controladores\ErrorController;
 
-    class VistasController
+    class VistaController
     {
         public static function mostrar($nombreVista = null, $datos = null) {
             self::mostrarHeader();

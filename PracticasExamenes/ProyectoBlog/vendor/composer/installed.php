@@ -3,7 +3,7 @@
         'name' => 'sergi/proyecto-blog',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2b35fa9cef4e547ef6208f3dea602c83270223b9',
+        'reference' => '6a1f13964e21d802ef4e021a419dbdda82bb26f3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -37,7 +37,7 @@
         'sergi/proyecto-blog' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2b35fa9cef4e547ef6208f3dea602c83270223b9',
+            'reference' => '6a1f13964e21d802ef4e021a419dbdda82bb26f3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

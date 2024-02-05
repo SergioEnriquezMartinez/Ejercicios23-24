@@ -9,11 +9,11 @@ return array(
     'Spipu\\Html2Pdf\\' => array($vendorDir . '/spipu/html2pdf/src'),
     'Sergi\\ProyectoBlog\\Vistas\\' => array($baseDir . '/src/vistas'),
     'Sergi\\ProyectoBlog\\Modelos\\' => array($baseDir . '/src/modelos'),
+    'Sergi\\ProyectoBlog\\Entidades\\' => array($baseDir . '/src/entidades'),
     'Sergi\\ProyectoBlog\\Database\\' => array($baseDir . '/src/database'),
-    'Sergi\\ProyectoBlog\\Contoladores\\' => array($baseDir . '/src/controladores'),
+    'Sergi\\ProyectoBlog\\Controladores\\' => array($baseDir . '/src/controladores'),
     'Sergi\\ProyectoBlog\\Config\\' => array($baseDir . '/src/config'),
     'Sergi\\ProyectoBlog\\Ayudantes\\' => array($baseDir . '/src/ayudantes'),
-    'Sergi\\ProyectoBlog\\' => array($baseDir . '/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
 );

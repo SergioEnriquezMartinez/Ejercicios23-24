@@ -11,9 +11,11 @@
 		</div>
 	
 		<?php
-			include_once("sidebar/sidebarUserLogin.php");
 			include_once("sidebar/sidebarLogin.php");
 			include_once("sidebar/sidebarRegister.php");
+			if (isset($_SESSION["user"])){
+				include_once("sidebar/sidebarUserLogin.php");
+			}
 		?>
 
 	</aside>

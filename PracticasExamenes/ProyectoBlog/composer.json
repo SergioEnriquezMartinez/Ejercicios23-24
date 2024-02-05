@@ -2,10 +2,9 @@
     "name": "sergi/proyecto-blog",
     "autoload": {
         "psr-4": {
-            "Sergi\\ProyectoBlog\\": "src/",
             "Sergi\\ProyectoBlog\\Config\\": "src/config/",
             "Sergi\\ProyectoBlog\\Database\\": "src/database/",
-            "Sergi\\ProyectoBlog\\Contoladores\\": "src/controladores/",
+            "Sergi\\ProyectoBlog\\Controladores\\": "src/controladores/",
             "Sergi\\ProyectoBlog\\Modelos\\": "src/modelos/",
             "Sergi\\ProyectoBlog\\Vistas\\": "src/vistas/",
             "Sergi\\ProyectoBlog\\Ayudantes\\": "src/ayudantes/",

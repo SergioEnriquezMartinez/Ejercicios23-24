@@ -40,7 +40,7 @@
                             ORDER BY id DESC';
 
                 if (isset($limiteInicial) && isset($limiteFinal)) {
-                    $consulta .= ' LIMIT $limiteInicial, $limiteFinal';
+                    $consulta .= ' LIMIT ' .$limiteInicial .', ' . $limiteFinal;
                 }
 
                 $sentencia = $this->conexion->prepare($consulta);
