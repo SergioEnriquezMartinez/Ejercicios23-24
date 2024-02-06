@@ -1,17 +1,17 @@
 <?php
 	namespace Mgj\ProyectoBlog2024\Helpers;
-
+    use Mgj\ProyectoBlog2024\Config\Parameters;
 	class Validations{
 
-        public static function validarName($nombre):bool{
-            return true;
+        public static function validateName($nombre):bool{
+            return (!empty($nombre) && preg_match("/^[a-zñáéíóú]+([ ][a-zñáéíóú]+)*$/", strtolower($nombre)));
         }
 
-        public static function validarEmail($email):bool{
-            return true;
+        public static function validateEmail($email):bool{
+            return (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL));
         }
 
-        public static function validarFormatPassword($password):bool{
-            return true;
+        public static function validateFormatPassword($password):bool{
+            return (!empty($password) && strlen($password) >= Parameters::$PASSWORD_MIN_LENGTH);
         }
     }

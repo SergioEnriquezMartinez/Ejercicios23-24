@@ -15,9 +15,8 @@ class EntradaController{
         $this->log = LogFactory::getLogger();
     }
 
-    public function index($param){
-        echo "<p> Index de EntradaController</p>";
-    }
+    public function index(){}
+
     /* 
         // Recupera la información SIN PAGINAR
     public function all(){
@@ -62,6 +61,7 @@ class EntradaController{
             // Vista:       
             ViewController::show('views/entradas/showLastEntradas.php', ["entradas" => $entradas]);
     }
+
     public function categoria(){
         // Necesita el parámetro id 
         $idCategoria = $_GET["id"]??null;

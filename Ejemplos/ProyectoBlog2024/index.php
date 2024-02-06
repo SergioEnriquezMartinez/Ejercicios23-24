@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 use Mgj\ProyectoBlog2024\Config\Parameters;
 use Mgj\ProyectoBlog2024\Controllers\ViewController;
 use Mgj\ProyectoBlog2024\Controllers\ErrorController;
-
+use Mgj\ProyectoBlog2024\Helpers\Validations;
 
 /*
     http://wwww.blogjavi.es/index.php?controller=Entrada&action=getAll
@@ -13,7 +13,6 @@ use Mgj\ProyectoBlog2024\Controllers\ErrorController;
     URL Amigable:
     http://www.blogjavi.es/Entrada/getAll
 */
-$_SESSION["user"] = "abc";
 
 // CONTROLADOR FRONTAL:
     $nameController = "Mgj\ProyectoBlog2024\Controllers\\";

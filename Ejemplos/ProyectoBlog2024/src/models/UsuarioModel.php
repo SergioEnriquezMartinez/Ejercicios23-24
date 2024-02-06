@@ -34,5 +34,17 @@ class UsuarioModel extends Model{
 
     }
 
+    public function login($email){
+        $consulta =" select * from usuarios where email = :email";
+        try{
+            $sentencia = $this->conn->prepare($consulta);
+            $sentencia->bindParam(':email', $email);
+            $sentencia->execute();
+            // Se retorna el objeto:
+            return $sentencia->fetch(\PDO::FETCH_OBJ);
+        }catch(\PDOException $e){
+            return NULL;
+        }
+    }
     
 }
