@@ -18,7 +18,7 @@
             echo '</article>';
         }
 
-        if (isset($datos["paginacion"])) $datos["paginacion"]->render();
+        if (isset($datos["pagination"])) $datos["pagination"]->render();
         echo '<div><a href="' .Parametros::$BASE_URL. 'Pdf/print' . '" class="boton boton-verde">Generar PDF</a></div>';
     }
 ?>

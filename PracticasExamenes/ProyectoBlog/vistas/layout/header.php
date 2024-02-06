@@ -26,7 +26,7 @@
 					<?php
 					if ($categorias != NULL){
 						foreach($categorias as $categoria){
-							echo "<li> <a href='".Parametros::$BASE_URL."Entrada/categoria&id=".$categoria->id."'>".$categoria->nombre."</a></li>";
+							echo "<li> <a href='".Parametros::$BASE_URL."Entrada/entradasCategoria&id=".$categoria->id."'>".$categoria->nombre."</a></li>";
 						}
 					}
 					?>

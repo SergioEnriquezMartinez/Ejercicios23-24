@@ -28,7 +28,7 @@
                     echo '<tr>';
                         echo '<td>' . $entrada->titulo . '</td>';
                         echo '<td>' . $entrada->descripcion . '</td>';
-                        echo '<td>' . $entrada->categoria . '</td>';
+                        echo '<td>' . $entrada->nombreCategoria . '</td>';
                         echo '<td>' . $entrada->fecha . '</td>';
                     echo '</tr>';
                 }

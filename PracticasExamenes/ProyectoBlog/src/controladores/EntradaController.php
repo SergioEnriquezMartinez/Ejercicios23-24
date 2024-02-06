@@ -58,8 +58,8 @@
             $_SESSION["tituloPDF"] = "Listado de entradas";
 
             // Vista
-            $info = 'Todas las entradas (Página {$paginacion->get_page()}';
-            VistaController::mostrar('vistas/entradas/verTodasEntradas.php', ['entradas' => $entradas, 'paginacion' => $paginacion, 'info' => $info]);
+            $info = 'Todas las entradas (Pagina ' . $paginacion->get_page() . ')';
+            VistaController::mostrar('vistas/entradas/verTodasEntradas.php', ['entradas' => $entradas, 'pagination' => $paginacion, 'info' => $info]);
         }
 
         public function ultimasEntradas() {

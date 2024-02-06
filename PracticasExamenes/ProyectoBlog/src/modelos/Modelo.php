@@ -16,7 +16,7 @@
 
         public function getOne($id) {
             try {
-            $consulta = 'SELECT * FROM ' . $this->tabla .' WHERE id = $id';
+            $consulta = 'SELECT * FROM ' . $this->tabla .' WHERE id = :id';
 
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(':id', $id);
@@ -25,7 +25,8 @@
 
             $this->logger->info('Consulta realizada: ' . $consulta);
 
-            return $sentencia->fetch();
+            $resultado = $sentencia->fetch();
+            return $resultado;
             } catch (\PDOException $e) {
                 $this->logger->error('Error al obtener un registro de la tabla {$this->tabla}: ' . $e->getMessage());
                 $this->logger->debug('Error al obtener un registro de la tabla {$this->tabla}: ' . $e->getMessage());
@@ -55,7 +56,7 @@
 
         public function getAllCount() {
             try {
-                $consulta = 'SELECT COUNT(*) FROM ' .$this->tabla;
+                $consulta = 'SELECT COUNT(*) AS cuenta FROM ' .$this->tabla;
 
                 $sentencia = $this->conexion->prepare($consulta);
                 $sentencia->setFetchMode(\PDO::FETCH_OBJ);
@@ -63,7 +64,8 @@
 
                 $this->logger->info('Consulta realizada: ' . $consulta);
 
-                return $sentencia->fetch();
+                $resultado = $sentencia->fetch();
+                return $resultado->cuenta;
             } catch (\PDOException $e) {
                 $this->logger->error('Error al obtener el número de registros de la tabla {$this->tabla}: ' . $e->getMessage());
                 $this->logger->debug('Error al obtener el número de registros de la tabla {$this->tabla}: ' . $e->getMessage());
