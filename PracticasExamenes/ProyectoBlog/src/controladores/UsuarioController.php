@@ -1,20 +1,13 @@
 <?php
     namespace Sergi\ProyectoBlog\Controladores;
 
-    use Psr\Log\LoggerInterface;
+    use Sergi\ProyectoBlog\Ayudantes\Autenticacion;
     use Sergi\ProyectoBlog\Modelos\UsuarioModelo;
     use Sergi\ProyectoBlog\Config\Parametros;
     use Sergi\ProyectoBlog\Entidades\UsuarioEntidad;
     use Sergi\ProyectoBlog\Ayudantes\Validaciones;
-    use Sergi\ProyectoBlog\Ayudantes\LogFactory;
-
     class UsuarioController
     {
-        private LoggerInterface $logger;
-
-        public function __construct() {
-            $this->logger = new LogFactory();
-        }
         public function index() {
             echo '<p>Index para UsuarioController</p>';
         }
@@ -27,18 +20,50 @@
                 $password = $_POST["password"];
                 $password2 = $_POST["password2"];
 
-                if (Validaciones::validarFormulario($nombre, $apellidos, $email, $password, $password2)) {
+                $errores = array();
+
+                if (!Validaciones::validarPalabraRegistro($nombre)) $errores['nombre'] = 'Formato de nombre no válido';
+                if (!Validaciones::validarPalabraRegistro($apellidos)) $errores['apellidos'] = 'Formato de apellidos no válido';
+                if (!Validaciones::validarEmailRegistro($email)) $errores['email'] = 'Formato de email no válido';
+                if (!Validaciones::validarPassword($password)) $errores['password'] = 'Formato de contraseña no válido';
+                if ($password != $password2) $errores['password2'] = 'Las contraseñas no coinciden';
+
+                if (empty($errores)) {
                     $usuarioModelo = new UsuarioModelo();
                     $usuario = new UsuarioEntidad();
 
                     $usuario->setNombre($nombre)->setApellidos($apellidos)->setEmail($email)->setPassword($password);
                     $_SESSION['statusRegister'] = $usuarioModelo->registro($usuario);
                 } else {
-                    $this->logger->debug('Error en el formulario de registro');
-                    $this->logger->error('Error en el formulario de registro');
+                    $_SESSION['dataPOST'] = $_POST;
+                    $_SESSION['validation_error'] = $errores;
                 }
             }
             header('Location: ' . Parametros::$BASE_URL);
+        }
+
+        public function login() {
+            if (isset($_POST["btnLogin"])) {
+                $email = trim($_POST["email"]) ?? '';
+                $password = $_POST["password"] ?? '';
+
+                $usuarioModelo = new UsuarioModelo();
+                $usuario = $usuarioModelo->login($email);
+
+                if ($usuario) {
+                    $verify = password_verify($password, $usuario->password);
+                    if ($verify) $_SESSION['user'] = $usuario;
+                    else $_SESSION['errorLogin'] = 'Credenciales incorrectas';
+                } else $_SESSION['errorLogin'] = 'Credenciales incorrectas';
+            }
+            header('Location: ' . Parametros::$BASE_URL);
+            exit();
+        }
+
+        public function logout() {
+            if (Autenticacion::isUserLogged()) session_destroy();
+            header('Location: ' . Parametros::$BASE_URL);
+            exit();
         }
     }
 ?>

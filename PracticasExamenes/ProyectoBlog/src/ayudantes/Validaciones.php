@@ -1,21 +1,19 @@
 <?php
     namespace Sergi\ProyectoBlog\Ayudantes;
 
+use Sergi\ProyectoBlog\Config\Parametros;
+
     class Validaciones {
-        public static function validarPalabraRegistro($palabra) {
-            return preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ])?$/",$palabra);
+        public static function validarPalabraRegistro($palabra) : bool {
+            return (!empty($palabra) && preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ])?$/",$palabra));
         }
 
-        public static function validarEmailRegistro($email) {
-            return filter_var($email, FILTER_VALIDATE_EMAIL);
+        public static function validarEmailRegistro($email) : bool {
+            return (!empty($email)) && filter_var($email, FILTER_VALIDATE_EMAIL);
         }
 
-        public static function validarPassword($password) {
-            return true;
-        }
-
-        public static function validarFormulario($nombre, $apellidos, $email, $password, $password2) {
-            return self::validarPalabraRegistro($nombre) && self::validarPalabraRegistro($apellidos) && self::validarEmailRegistro($email) && self::validarPassword($password) && $password == $password2;
+        public static function validarPassword($password) : bool{
+            return (!empty($password) && strlen($password) >= Parametros::$PASSWORD_MIN_LENGTH);
         }
     }
 ?>
