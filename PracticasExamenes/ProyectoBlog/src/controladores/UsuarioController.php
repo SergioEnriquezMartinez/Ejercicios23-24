@@ -53,8 +53,8 @@
                 if ($usuario) {
                     $verify = password_verify($password, $usuario->password);
                     if ($verify) $_SESSION['user'] = $usuario;
-                    else $_SESSION['errorLogin'] = 'Credenciales incorrectas 1';
-                } else $_SESSION['errorLogin'] = 'Credenciales incorrectas 2';
+                    else $_SESSION['errorLogin'] = 'Credenciales incorrectas';
+                } else $_SESSION['errorLogin'] = 'Usuario o contraseña no válido';
             }
             header('Location: ' . Parametros::$BASE_URL);
             exit();
@@ -73,6 +73,10 @@
                 // Vista
                 VistaController::mostrar('vistas/usuarios/datosUsuario.php', ['usuario' => $usuario]);
             }
+        }
+
+        public function actualizarDatosUsuario() {
+            
         }
     }
 ?>

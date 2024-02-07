@@ -54,5 +54,10 @@
                 return null;
             }
         }
+
+        public function actualizar($nombre, $apellidos, $password = '', $password2 = '', $id) {
+            $consulta = 'UPDATE usuarios SET nombre = :nombre, apellidos = :apellidos, email = :email';
+            $sentencia = $this->conexion->prepare($consulta);
+        }
     }
 ?>

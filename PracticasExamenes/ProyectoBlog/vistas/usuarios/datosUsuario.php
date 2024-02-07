@@ -18,4 +18,6 @@
 
         echo 'label for="password2">Repetir contraseña</label>';
         echo '<input type="password" id="password2" name="password2">';
+
+        echo '<input type="submit" value="Actualizar" name="btnActualizar">';
 ?>

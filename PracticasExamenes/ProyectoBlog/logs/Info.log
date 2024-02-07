@@ -566,3 +566,5 @@
 [2024-02-07T14:32:14.442517+01:00] BLOG.INFO: Consulta realizada: SELECT * FROM categorias [] []
 [2024-02-07T14:35:52.251174+01:00] BLOG.INFO: Consulta realizada: SELECT e.*, c.nombre as nombreCategoria                             FROM entradas e INNER JOIN categorias c                                 ON e.categoria_id = c.id                             ORDER BY id DESC                             LIMIT 3 [] []
 [2024-02-07T14:35:52.265525+01:00] BLOG.INFO: Consulta realizada: SELECT * FROM categorias [] []
+[2024-02-08T00:02:41.609794+01:00] BLOG.INFO: Consulta realizada: SELECT e.*, c.nombre as nombreCategoria                             FROM entradas e INNER JOIN categorias c                                 ON e.categoria_id = c.id                             ORDER BY id DESC                             LIMIT 3 [] []
+[2024-02-08T00:02:41.649005+01:00] BLOG.INFO: Consulta realizada: SELECT * FROM categorias [] []
