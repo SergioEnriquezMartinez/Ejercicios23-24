@@ -12,8 +12,8 @@
 
         public function registro(UsuarioEntidad $usuario) {
             try {
-                $consulta = 'INSERT INTO usuarios (nombre, apellidos, email, password, fecha)
-                            VALUES (:nombre, :apellidos, :email, :password, curdate())';
+                $consulta = 'INSERT INTO usuarios (nombre, apellidos, email, password, fecha, rol)
+                            VALUES (:nombre, :apellidos, :email, :password, curdate(), "usuario")';
 
                 $contraseñaSegura = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
                 $nombre = $usuario->getNombre();

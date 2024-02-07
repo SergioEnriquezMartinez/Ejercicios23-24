@@ -53,8 +53,8 @@
                 if ($usuario) {
                     $verify = password_verify($password, $usuario->password);
                     if ($verify) $_SESSION['user'] = $usuario;
-                    else $_SESSION['errorLogin'] = 'Credenciales incorrectas';
-                } else $_SESSION['errorLogin'] = 'Credenciales incorrectas';
+                    else $_SESSION['errorLogin'] = 'Credenciales incorrectas 1';
+                } else $_SESSION['errorLogin'] = 'Credenciales incorrectas 2';
             }
             header('Location: ' . Parametros::$BASE_URL);
             exit();
@@ -64,6 +64,15 @@
             if (Autenticacion::isUserLogged()) session_destroy();
             header('Location: ' . Parametros::$BASE_URL);
             exit();
+        }
+
+        public function mostrarDatosUsuario() {
+            if (Autenticacion::isUserLogged()) {
+                $usuario = $_SESSION['user'];
+
+                // Vista
+                VistaController::mostrar('vistas/usuarios/datosUsuario.php', ['usuario' => $usuario]);
+            }
         }
     }
 ?>

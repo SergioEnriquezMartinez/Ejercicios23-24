@@ -4,8 +4,8 @@
     class Autenticacion 
     {
         public static function isUserAdminLogged() : bool {
-            //return (isset($_SESSION["user"]) && $_SESSION["user"]["rol"] === "admin");
-            return false;
+            return (isset($_SESSION["user"]) && $_SESSION["user"]->rol === "admin");
+            
         }
 
         public static function isUserLogged() : bool {
