@@ -55,9 +55,39 @@
             }
         }
 
-        public function actualizar($nombre, $apellidos, $password = '', $password2 = '', $id) {
-            $consulta = 'UPDATE usuarios SET nombre = :nombre, apellidos = :apellidos, email = :email';
-            $sentencia = $this->conexion->prepare($consulta);
+        public function actualizarUsuario(UsuarioEntidad $usuario, $passChange) {
+            try{
+                $consulta = 'UPDATE usuarios SET nombre = :nombre, apellidos = :apellidos';
+                if ($passChange) {
+                    $consulta .= ', password = :password';
+                }
+                $consulta .= ' WHERE id = :id';
+                
+                $nombre = $usuario->getNombre();
+                $apellidos = $usuario->getApellidos();
+                $id = $usuario->getId();
+
+                $sentencia = $this->conexion->prepare($consulta);
+                $sentencia->bindParam(':nombre', $nombre);
+                $sentencia->bindParam(':apellidos', $apellidos);
+                
+                if ($passChange) {
+                    $contraseñaSegura = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
+                    $sentencia->bindParam(':password', $contraseñaSegura);
+                }
+
+                
+                $sentencia->bindParam(':id', intval($id));
+
+                return $sentencia->execute();
+            } catch (\PDOException $e) {
+                $this->logger->error('Error al actualizar un usuario: ' . $e->getMessage());
+                $this->logger->debug('Error al actualizar un usuario: ' . $e->getMessage());
+                echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
+                return null;
+            }
         }
+
+       
     }
 ?>

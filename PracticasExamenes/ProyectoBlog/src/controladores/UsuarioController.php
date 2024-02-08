@@ -68,15 +68,52 @@
 
         public function mostrarDatosUsuario() {
             if (Autenticacion::isUserLogged()) {
-                $usuario = $_SESSION['user'];
-
                 // Vista
-                VistaController::mostrar('vistas/usuarios/datosUsuario.php', ['usuario' => $usuario]);
+                VistaController::mostrar('vistas/usuarios/datosUsuario.php');
             }
         }
 
         public function actualizarDatosUsuario() {
-            
+            if (isset($_POST["btnActualizar"])) {
+                $nombre = $_POST["nombre"];
+                $apellidos = $_POST["apellidos"];
+                $email = $_SESSION['user']->email;
+                $id = $_SESSION['user']->id;
+                $rol = $_SESSION['user']->rol;
+
+                $usuarioModelo = new UsuarioModelo();
+                $errores = array();
+
+                if (!Validaciones::validarPalabraRegistro($nombre)) $errores['nombre'] = 'Formato de nombre no válido';
+                if (!Validaciones::validarPalabraRegistro($apellidos)) $errores['apellidos'] = 'Formato de apellidos no válido';
+
+                $usuario = new UsuarioEntidad();
+                $passChange = false;
+                
+                if ($_POST['password'] != '') {
+                    $password = $_POST["password"];
+                    $password2 = $_POST["password2"];
+                    
+                    if (!Validaciones::validarPassword($password)) $errores['password'] = 'Formato de contraseña no válido';
+                    if ($password != $password2) $errores['password2'] = 'Las contraseñas no coinciden';
+                    
+                    if (empty($errores)) {
+                        $usuario->setPassword($password);
+                        $passChange = true;
+                    }
+                    
+                } else {
+                    $usuario->setPassword($_SESSION['user']->password);
+                }
+                if (empty($errores)) {
+                    $usuario->setNombre($nombre)->setApellidos($apellidos)->setEmail($email)->setId($id)->setRol($rol);
+                    $_SESSION['statusUpdate'] = $usuarioModelo->actualizarUsuario($usuario, $passChange);
+                    $_SESSION['user'] = $usuario;
+                } else {
+                    $_SESSION['errorUpdate'] = $errores;
+                }
+            }
+            header('Location: ' . Parametros::$BASE_URL . 'usuario/mostrarDatosUsuario');
         }
     }
 ?>

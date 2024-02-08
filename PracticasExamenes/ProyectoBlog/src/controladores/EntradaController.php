@@ -2,11 +2,13 @@
     namespace Sergi\ProyectoBlog\Controladores;
 
     use Psr\Log\LoggerInterface;
+    use Sergi\ProyectoBlog\Ayudantes\Autenticacion;
     use Sergi\ProyectoBlog\Ayudantes\LogFactory;
     use Sergi\ProyectoBlog\Config\Parametros;
     use Sergi\ProyectoBlog\Modelos\EntradaModelo;
     use Sergi\ProyectoBlog\Modelos\CategoriaModelo;
     use Zebra_Pagination;
+    use Sergi\ProyectoBlog\Entidades\EntradaEntidad;
 
     class EntradaController
     {
@@ -86,6 +88,48 @@
                 $_SESSION["tituloPDF"] = "Listado de entradas de la categoría {$categoria->nombre}";
                 VistaController::mostrar('vistas/entradas/verEntradasCategoria.php', ['entradas' => $entradas, 'categoria' => $categoria]);
             }
+        }
+
+        public function mostrarCrearEntrada() {
+            if (Autenticacion::isUserLogged()) {
+                $categoriaModelo = new CategoriaModelo();
+                $categorias = $categoriaModelo->getAll();
+
+                // Vista
+                VistaController::mostrar('vistas/entradas/crearEntrada.php', ['categorias' => $categorias]);
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+        }
+
+        public function crearEntrada() {
+            if (Autenticacion::isUserLogged()) {
+                if (isset($_POST['btnCrearEntrada'])) {
+                    $titulo = $_POST['titulo'];
+                    $descripcion = $_POST['descripcion'];
+                    $categoriaId = $_POST['categoria'];
+                    $usuarioId = $_SESSION['user']->id;
+
+                    $errores = array();
+                    if (empty($titulo)) $errores['titulo'] = 'El título no puede estar vacío';
+                    if (empty($descripcion)) $errores['descripcion'] = 'La descripción no puede estar vacía';
+                    if (empty($categoriaId)) $errores['categoria'] = 'Selecciona una categoria';
+
+                    if (empty($errores)) {
+                        $entradaEntity = new EntradaEntidad();
+                        $entradaModelo = new EntradaModelo();
+                        $entradaEntity->setTitulo($titulo)->setDescripcion($descripcion)->setCategoriaId($categoriaId)->setUsuarioId($usuarioId);
+                        $entradaModelo->crearEntrada($entradaEntity);
+                    } else {
+                        $_SESSION['errorCrearEntrada'] = $errores;
+                    }
+
+                }
+
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+            header('Location: ' . Parametros::$BASE_URL . 'Entrada/mostrarCrearEntrada');
         }
     }
 ?>

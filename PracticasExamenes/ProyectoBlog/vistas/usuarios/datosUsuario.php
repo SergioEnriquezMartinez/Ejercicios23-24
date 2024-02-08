@@ -1,23 +1,41 @@
 <?php
     
-    
-    $usuario = $datos['usuario'];
+    use Sergi\ProyectoBlog\Ayudantes\ErrorHelper;
+    use Sergi\ProyectoBlog\Config\Parametros;
 
-    echo '<form>';
-        echo 'label for="nombre">Nombre</label>';
-        echo '<input type="text" id="nombre" name="nombre" value="' . $usuario->nombre . '">';
+    $usuario = $_SESSION['user'];
+
+    if (isset($_SESSION['statusUpdate'])){
+        if ($_SESSION['statusUpdate'])
+            echo "<div class='alerta'>Datos actualizados</div>";
+        else
+            echo "<div class='alerta alerta-error'>Error al actualizar</div>";
+    }
+?>
+
+    <form action="<?=Parametros::$BASE_URL?>Usuario/actualizarDatosUsuario" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="<?=$usuario->nombre?>">
+        <?=isset($_SESSION['errorUpdate']['nombre'])? ErrorHelper::mostrarError($_SESSION['errorUpdate'], "nombre") : "";?>
         
-        echo 'label for="apellidos">Apellidos</label>';
-        echo '<input type="text" id="apellidos" name="apellidos" value="' . $usuario->apellidos . '">';
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" value="<?=$usuario->apellidos?>">
+        <?=isset($_SESSION['errorUpdate']['apellidos'])? ErrorHelper::mostrarError($_SESSION['errorUpdate'], "apellidos") : "";?>
 
-        echo 'label for="email">Email</label>';
-        echo '<input type="email" id="email" name="email" value="' . $usuario->email . '" disabled>';
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?=$usuario->email?>" disabled>
 
-        echo 'label for="password">Contraseña</label>';
-        echo '<input type="password" id="password" name="password">';
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password">
+        <?=isset($_SESSION['errorUpdate']['password'])? ErrorHelper::mostrarError($_SESSION['errorUpdate'], "password") : "";?>
 
-        echo 'label for="password2">Repetir contraseña</label>';
-        echo '<input type="password" id="password2" name="password2">';
+        <label for="password2">Repetir contraseña</label>
+        <input type="password" id="password2" name="password2">
+        <?=isset($_SESSION['errorUpdate']['password2'])? ErrorHelper::mostrarError($_SESSION['errorUpdate'], "password2") : "";?>
 
-        echo '<input type="submit" value="Actualizar" name="btnActualizar">';
+        <input type="submit" value="Actualizar" name="btnActualizar">
+
+    </form>
+<?php
+    ErrorHelper::clearAll();
 ?>

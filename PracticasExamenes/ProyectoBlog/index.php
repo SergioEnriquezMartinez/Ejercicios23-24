@@ -1,7 +1,8 @@
 <?php
+    require_once 'vendor/autoload.php';
+
     session_start();
 
-    require_once 'vendor/autoload.php';
 
     use Sergi\ProyectoBlog\Config\Parametros;
     use Sergi\ProyectoBlog\Controladores\VistaController;

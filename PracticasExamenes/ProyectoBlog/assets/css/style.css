@@ -194,6 +194,11 @@ input[type="submit"],
     border-color: #444;
 }
 
+.boton-azul{
+    background: #007ee5;
+    border-color: #156785;
+}
+
 
 /*PRINCIPAL*/
 #principal{

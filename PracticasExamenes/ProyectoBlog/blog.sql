@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2024 a las 14:15:54
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 08-02-2024 a las 21:23:57
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,9 @@ INSERT INTO `entradas` (`id`, `usuario_id`, `categoria_id`, `titulo`, `descripci
 (16, 7, 9, 'Ejemplo de entrada dentro de la categoría de BD', 'Ejemplo de entrada dentro de la categoría de BD', '2024-01-16'),
 (17, 7, 9, 'Segunda entrada', 'Ejemplo de entrada dentro de la Segunda entrada en BD', '2024-01-16'),
 (18, 6, 10, 'Otra entrada mas 23', 'Otra entrada mas 23 Otra entrada mas 23', '2024-01-23'),
-(19, 6, 9, 'Otra entrada mas de BD Dia 23', 'Otra entrada mas de BD Dia 23 Otra entrada mas de BD Dia 23', '2024-01-23');
+(19, 6, 9, 'Otra entrada mas de BD Dia 23', 'Otra entrada mas de BD Dia 23 Otra entrada mas de BD Dia 23', '2024-01-23'),
+(20, 7, 10, 'Esta es una entrada de prueba', 'dfsdfsd', '2024-02-08'),
+(21, 7, 12, 'Esta es una entrada de prueba 2', 'Otra entrada de prueba para esto', '2024-02-08');
 
 -- --------------------------------------------------------
 
@@ -78,16 +80,18 @@ CREATE TABLE `usuarios` (
   `apellidos` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `rol` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `fecha`) VALUES
-(6, 'Juan', 'López Sánchez', 'juanlopez@gmail.com', '1234', '2024-01-15'),
-(7, 'Javi', 'Martin', 'javi@gmail.com', '1234', '2024-01-08');
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `fecha`, `rol`) VALUES
+(6, 'Juan', 'López Sánchez', 'juanlopez@gmail.com', '$2y$10$kQ1kKlgaiyuQ73ygwEfon.JOkJEuLedaX50m7xE5Ozf/kDlim1r4G', '2024-01-15', 'admin'),
+(7, 'Javi', 'Martin', 'javi@gmail.com', '$2y$10$kQ1kKlgaiyuQ73ygwEfon.JOkJEuLedaX50m7xE5Ozf/kDlim1r4G', '2024-01-08', 'admin'),
+(8, 'Sergio', 'Martínez', 'sexow75846@tospage.com', '$2y$10$8bV8jfUN0YaujrLAj8rlJ.9djCe7/3y8NObymK3gDXmKcTwW8Amtm', '2024-02-08', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -123,19 +127,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `entradas`
 --
 ALTER TABLE `entradas`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -152,8 +156,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-/*AÑADIMOS ROLES*/
-ALTER TABLE usuarios ADD rol VARCHAR(10);
-UPDATE usuarios SET rol = 'admin';

@@ -14,6 +14,7 @@
         public static function clearAll() {
             unset($_SESSION['validation_error']);
             unset($_SESSION['statusRegister']);
+            unset($_SESSION['statusUpdate']);
             unset($_SESSION['dataPOST']);
         }
     }

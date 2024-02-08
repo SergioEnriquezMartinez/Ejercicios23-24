@@ -1,6 +1,7 @@
 <?php
     namespace Sergi\ProyectoBlog\Modelos;
     use Sergi\ProyectoBlog\Config\Parametros;
+use Sergi\ProyectoBlog\Entidades\EntradaEntidad;
 
     class EntradaModelo extends Modelo
     {
@@ -77,6 +78,25 @@
             } catch (\PDOException $e) {
                 $this->logger->error('Error al obtener las entradas de la categoría: ' . $e->getMessage());
                 $this->logger->debug('Error al obtener las entradas de la categoría: ' . $e->getMessage());
+                echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
+                return null;
+            }
+        }
+
+        public function crearEntrada(EntradaEntidad $entrada) {
+            try {
+                $consulta = 'INSERT INTO entradas (titulo, descripcion, categoria_id, usuario_id, fecha)
+                            VALUES (:titulo, :descripcion, :categoria_id, :usuario_id, curdate())';
+                $sentencia = $this->conexion->prepare($consulta);
+                $sentencia->bindParam(':titulo', $entrada->getTitulo());
+                $sentencia->bindParam(':descripcion', $entrada->getDescripcion());
+                $sentencia->bindParam(':categoria_id', $entrada->getCategoriaId());
+                $sentencia->bindParam(':usuario_id', $entrada->getUsuarioId());
+                
+                return $sentencia->execute();
+            } catch (\PDOException $e) {
+                $this->logger->error('Error al crear la entrada: ' . $e->getMessage());
+                $this->logger->debug('Error al crear la entrada: ' . $e->getMessage());
                 echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
                 return null;
             }
