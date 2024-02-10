@@ -102,5 +102,67 @@ use Sergi\ProyectoBlog\Entidades\EntradaEntidad;
             }
         }
 
+        public function buscar($busqueda) {
+            try {
+                $consulta = 'SELECT e.id, e.titulo, e.descripcion, c.nombre as nombreCategoria, u.nombre as nombreUsuario,
+                                u.apellidos as apellidosUsuario, e.fecha
+                            FROM entradas e JOIN categorias c ON e.categoria_id = c.id
+                                JOIN usuarios u ON e.usuario_id = u.id
+                            WHERE e.titulo LIKE :busqueda OR e.descripcion LIKE :busqueda
+                            OR c.nombre LIKE :busqueda OR u.nombre LIKE :busqueda
+                            OR u.apellidos LIKE :busqueda OR e.fecha LIKE :busqueda
+                            ORDER BY e.id DESC';
+
+                $busqueda = '%' . $busqueda . '%';
+    
+                $sentencia = $this->conexion->prepare($consulta);
+                $sentencia->bindParam(':busqueda', $busqueda);
+                $sentencia->setFetchMode(\PDO::FETCH_OBJ);
+                $sentencia->execute();
+    
+                return $sentencia->fetchAll();
+            } catch (\PDOException $e) {
+                $this->logger->error('Error al buscar: ' . $e->getMessage());
+                $this->logger->debug('Error al buscar: ' . $e->getMessage());
+                echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
+                return null;
+            }
+        }
+
+        public function borrarEntrada($idEntrada) {
+            try {
+                $consulta = 'DELETE FROM entradas WHERE id = :idEntrada';
+                
+                $sentencia = $this->conexion->prepare($consulta);
+                $sentencia->bindParam(':idEntrada', $idEntrada);
+                
+                return $sentencia->execute();
+            } catch (\PDOException $e) {
+                $this->logger->error('Error al borrar la entrada: ' . $e->getMessage());
+                $this->logger->debug('Error al borrar la entrada: ' . $e->getMessage());
+                echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
+                return null;
+            }
+        }
+
+        public function editarEntrada(EntradaEntidad $entrada) {
+            try {
+                $consulta = 'UPDATE entradas SET titulo = :titulo, descripcion = :descripcion, categoria_id = :categoria_id
+                            WHERE id = :id';
+                $sentencia = $this->conexion->prepare($consulta);
+                $sentencia->bindParam(':titulo', $entrada->getTitulo());
+                $sentencia->bindParam(':descripcion', $entrada->getDescripcion());
+                $sentencia->bindParam(':categoria_id', $entrada->getCategoriaId());
+                $sentencia->bindParam(':id', $entrada->getId());
+                
+                return $sentencia->execute();
+            } catch (\PDOException $e) {
+                $this->logger->error('Error al editar la entrada: ' . $e->getMessage());
+                $this->logger->debug('Error al editar la entrada: ' . $e->getMessage());
+                echo '<p>Fallo en la conexión:' . $e->getMessage() . '</p>';
+                return null;
+            }
+        }
+
     }
 ?>

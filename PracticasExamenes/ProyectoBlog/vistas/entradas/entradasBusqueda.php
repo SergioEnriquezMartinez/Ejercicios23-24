@@ -1,12 +1,18 @@
 <?php
     use Sergi\ProyectoBlog\Config\Parametros;
 
-    $entradas = $datos['entradas']??NULL;
+    if (isset($datos['entradas'])) {
+        $entradas = $datos['entradas'];
+    } else {
+        header('Location: ' . Parametros::$BASE_URL);
+    }
 
-    if ($entradas == NULL) {
+    if (empty($entradas)) {
         echo '<p>No existen entradas</p>';
     } else {
-        echo '<h1>Últimas entradas</h1>';
+?>
+        <h1>Entradas</h1>
+        <?php
         foreach($entradas as $entrada) {
             echo '<article class="entrada">';
                 echo '<a href="' . Parametros::$BASE_URL . 'Entrada/verEntrada&id=' . $entrada->id . '">';
@@ -16,7 +22,8 @@
                 echo '</a>';
             echo '</article>';
         }
-
-        echo '<div id="ver-todas"><a href="' . Parametros::$BASE_URL . 'Entrada/all">Ver todas las entradas</a></div>';
+        ?>
+        <div><a href="' . Parametros::$BASE_URL . 'Pdf/print' . '" class="boton boton-verde">Generar PDF</a></div>
+<?php
     }
 ?>

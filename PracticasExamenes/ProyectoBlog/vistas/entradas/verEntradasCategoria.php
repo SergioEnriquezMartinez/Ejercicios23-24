@@ -10,7 +10,7 @@
         echo '<h1>Entradas de: ' . $categoria->nombre . '</h1>';
         foreach($entradas as $entrada) {
             echo '<article class="entrada">';
-                echo '<a href="">';
+                echo '<a href="' . Parametros::$BASE_URL . 'Entrada/verEntrada&id=' . $entrada->id . '">';
                     echo '<h2>' . $entrada->titulo . '</h2>';
                     echo '<span class="fecha">' . $entrada->nombreCategoria . ' | ' . $entrada->fecha . '</span>';
                     echo '<p>' . $entrada->descripcion . '</p>';

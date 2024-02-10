@@ -1,12 +1,16 @@
-	<!-- BARRA LATERAL -->
+<?php
+	use Sergi\ProyectoBlog\Config\Parametros;
+?>
+
+<!-- BARRA LATERAL -->
 	<aside id="sidebar">
 	
 		<div id="buscador" class="bloque">
 			<h3>Buscar</h3>
 
-			<form action='index.php?controller=Entrada&action=search' method='get'> 
+			<form action='<?=Parametros::$BASE_URL?>Entrada/buscar' method='post'> 
 				<input type="text" name="b" />
-				<input type="submit" value="Buscar" />
+				<input type="submit" value="Buscar" name="btnBuscar"/>
 			</form>
 		</div>
 	

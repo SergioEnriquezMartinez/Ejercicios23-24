@@ -9,6 +9,7 @@
     use Sergi\ProyectoBlog\Modelos\CategoriaModelo;
     use Zebra_Pagination;
     use Sergi\ProyectoBlog\Entidades\EntradaEntidad;
+    use Sergi\ProyectoBlog\Modelos\UsuarioModelo;
 
     class EntradaController
     {
@@ -124,12 +125,102 @@
                         $_SESSION['errorCrearEntrada'] = $errores;
                     }
 
+                } else {
+                    header('Location: ' . Parametros::$BASE_URL);
                 }
 
             } else {
                 header('Location: ' . Parametros::$BASE_URL);
             }
             header('Location: ' . Parametros::$BASE_URL . 'Entrada/mostrarCrearEntrada');
+        }
+
+        public function buscar() {
+            if (isset($_POST['btnBuscar'])) {
+                $criterio = $_POST['b'];
+                $entradaModelo = new EntradaModelo();
+                $entradas = $entradaModelo->buscar($criterio);
+
+                // Vista
+                VistaController::mostrar('vistas/entradas/entradasBusqueda.php', ['entradas' => $entradas]);
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+        }
+
+        public function verEntrada() {
+            $idEntrada = $_GET['id'];
+            if ($idEntrada) {
+                $entradaModelo = new EntradaModelo();
+                $entrada = $entradaModelo->getOne($idEntrada);
+                $usuarioModelo = new UsuarioModelo();
+                $usuario = $usuarioModelo->getOne($entrada->usuario_id);
+                $categoriaModelo = new CategoriaModelo();
+                $categoria = $categoriaModelo->getOne($entrada->categoria_id);
+
+                // Vista
+                VistaController::mostrar('vistas/entradas/verUnaEntrada.php', ['entrada' => $entrada, 'usuario' => $usuario, 'categoria' => $categoria]);
+            }
+        }
+
+        public function mostrarDatosEntrada() {
+            if (Autenticacion::isUserLogged()) {
+                $idEntrada = $_GET['id'];
+                if ($idEntrada) {
+                    $entradaModelo = new EntradaModelo();
+                    $entrada = $entradaModelo->getOne($idEntrada);
+                    $categoriaModelo = new CategoriaModelo();
+                    $categorias = $categoriaModelo->getAll();
+
+                    // Vista
+                    VistaController::mostrar('vistas/entradas/editarEntrada.php', ['entrada' => $entrada, 'categorias' => $categorias]);
+                }
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+        }
+
+        public function editarEntrada() {
+            if (Autenticacion::isUserLogged()) {
+                if (isset($_POST['btnGuardar'])) {
+                    $idEntrada = $_GET['id'];
+                    $titulo = $_POST['titulo'];
+                    $descripcion = $_POST['descripcion'];
+                    $categoriaId = $_POST['categoria'];
+
+                    $errores = array();
+                    if (empty($titulo)) $errores['titulo'] = 'El título no puede estar vacío';
+                    if (empty($descripcion)) $errores['descripcion'] = 'La descripción no puede estar vacía';
+                    if (empty($categoriaId)) $errores['categoria'] = 'Selecciona una categoria';
+
+                    if (empty($errores)) {
+                        $entradaEntity = new EntradaEntidad();
+                        $entradaModelo = new EntradaModelo();
+                        $entradaEntity->setId($idEntrada)->setTitulo($titulo)->setDescripcion($descripcion)->setCategoriaId($categoriaId);
+                        $entradaModelo->editarEntrada($entradaEntity);
+                    } else {
+                        $_SESSION['errorEditarEntrada'] = $errores;
+                    }
+                } else {
+                    header('Location: ' . Parametros::$BASE_URL);
+                }
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+            header('Location: ' . Parametros::$BASE_URL . 'Entrada/mostrarDatosEntrada&id=' . $idEntrada);
+        }
+
+        public function eliminarEntrada() {
+            if (Autenticacion::isUserLogged()) {
+                $idEntrada = $_GET['id'];
+                if ($idEntrada) {
+                    $entradaModelo = new EntradaModelo();
+                    $entradaModelo->borrarEntrada($idEntrada);
+                }
+            } else {
+                header('Location: ' . Parametros::$BASE_URL);
+            }
+            header('Location: ' . Parametros::$BASE_URL . 'Entrada/all');
         }
     }
 ?>
