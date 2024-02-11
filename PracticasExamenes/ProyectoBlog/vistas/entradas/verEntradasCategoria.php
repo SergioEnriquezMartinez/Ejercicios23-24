@@ -18,6 +18,6 @@
             echo '</article>';
         }
 
-        echo '<div><a href="' . Parametros::$BASE_URL . 'Pdf/print' . '" class="boton boton-verde">Generar PDF</a></div>';
+        echo '<div><a href="' . Parametros::$BASE_URL . 'Pdf/print' . '" class="boton boton-azul">Generar PDF</a></div>';
     }
 ?>
