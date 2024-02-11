@@ -1,0 +1,22 @@
+{
+    "name": "manu/carrito_mvc",
+    "description": "Carrito MVC",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Manu\\CarritoMvc\\": "src/",
+            "Manu\\CarritoMvc\\Controllers\\": "src/controllers/",
+            "Manu\\CarritoMvc\\Config\\": "src/config/",
+            "Manu\\CarritoMvc\\Models\\": "src/models/",
+            "Manu\\CarritoMvc\\Helpers\\": "src/helpers",
+            "Manu\\CarritoMvc\\Entities\\" : "src/entities",
+            "Manu\\CarritoMvc\\Database\\" : "src/database"
+        }
+    },
+    "authors": [
+        {
+            "name": "Manu"
+        }
+    ],
+    "require": {}
+}

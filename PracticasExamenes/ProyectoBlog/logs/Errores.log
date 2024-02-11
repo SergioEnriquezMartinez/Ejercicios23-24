@@ -139,3 +139,6 @@
 [2024-02-11T18:00:01.792683+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
 [2024-02-11T18:00:12.382944+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
 [2024-02-11T18:01:51.294941+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
+[2024-02-11T18:12:31.199459+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
+[2024-02-11T18:12:36.424362+01:00] BLOG.ERROR: Metodo all: Paginación {"page":"2","regOrigen":2} []
+[2024-02-11T18:12:44.967094+01:00] BLOG.ERROR: Metodo all: Paginación {"page":"3","regOrigen":4} []
