@@ -1,0 +1,19 @@
+{
+    "name": "sergi/proyecto-blog",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\ProyectoBlog\\Config\\": "src/config/",
+            "Sergi\\ProyectoBlog\\Database\\": "src/database/",
+            "Sergi\\ProyectoBlog\\Controladores\\": "src/controladores/",
+            "Sergi\\ProyectoBlog\\Modelos\\": "src/modelos/",
+            "Sergi\\ProyectoBlog\\Vistas\\": "src/vistas/",
+            "Sergi\\ProyectoBlog\\Ayudantes\\": "src/ayudantes/",
+            "Sergi\\ProyectoBlog\\Entidades\\": "src/entidades/"
+        }
+    },
+    "require": {
+        "monolog/monolog": "^3.5",
+        "stefangabos/zebra_pagination": "^2.4",
+        "spipu/html2pdf": "^5.2"
+    }
+}
