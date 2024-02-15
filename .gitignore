@@ -3,3 +3,5 @@
 
 # Ignorar el archivo ConfiguracionBD.php en la ruta PracticasExamenes/ProyectoBlog/src/config/
 PracticasExamenes/ProyectoBlog/src/config/ConfiguracionBD.php
+PracticasExamenes/BlogExamen/vendor/monolog/monolog/
+PracticasExamenes/BlogExamen/vendor/psr/log/
