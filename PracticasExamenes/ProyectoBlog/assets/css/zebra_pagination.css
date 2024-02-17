@@ -30,7 +30,7 @@
 .Zebra_Pagination a,
 .Zebra_Pagination span {
     padding: 6px 12px;
-    color: #337AB7;
+    color: #9f86c0;
     text-decoration: none;
     background-color: #FFF;
     border: 1px solid #DDD;
@@ -43,14 +43,14 @@
 .Zebra_Pagination li.active a {
     color: #FFF;
     cursor: default;
-    background-color: #337AB7;
-    border-color: #337AB7;
+    background-color: #9f86c0;
+    border-color: #9f86c0;
 }
 
 .Zebra_Pagination li a:hover,
 .Zebra_Pagination li span:hover {
     color: #23527C;
-    background-color: #EEE;
+    background-color: #5e548e;
     border-color: #DDD;
 }
 
