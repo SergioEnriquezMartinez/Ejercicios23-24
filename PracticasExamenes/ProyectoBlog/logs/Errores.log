@@ -160,3 +160,5 @@
 [2024-02-17T15:33:19.451313+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
 [2024-02-17T15:36:01.524289+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
 [2024-02-17T15:36:02.861236+01:00] BLOG.ERROR: Metodo all: Paginación {"page":"2","regOrigen":2} []
+[2024-03-06T16:04:59.177181+01:00] BLOG.ERROR: Metodo all: Paginación {"page":1,"regOrigen":0} []
+[2024-03-06T16:05:00.973683+01:00] BLOG.ERROR: Metodo all: Paginación {"page":"2","regOrigen":2} []
